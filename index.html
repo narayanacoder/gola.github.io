@@ -2,68 +2,167 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GOLA - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GOLA - Secure. Build. Grow.</title>
+
+  <!-- 字体导入 -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+
+  <!-- 样式表链接 -->
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <!-- navigation bar & Logo） -->
+  <div class="page-glow" aria-hidden="true"></div>
   <header>
     <div class="container nav-container">
       <div class="logo">GOLA</div>
       <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="services.html">Services</a>
-        <a href="partners.html">Partners</a>
-        <a href="about.html">About Us</a>
-        <a href="case-studies.html">Case Studies</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
+        <a href="#hero" class="active">Home</a>
+        <a href="/Users/lancheng/Desktop/gola.github.io-main/services.html">Services</a>
+        <a href="/Users/lancheng/Desktop/gola.github.io-main/partners.html">Partners</a>
+        <a href="/Users/lancheng/Desktop/gola.github.io-main/about.html">About Us</a>
+        <a href="/Users/lancheng/Desktop/gola.github.io-main/case-studies.html">Case Studies</a>
+        <a href="/Users/lancheng/Desktop/gola.github.io-main/blog.html">Blog</a>
+        <a href="/Users/lancheng/Desktop/gola.github.io-main/contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
+  <!-- 🌅 Hero 区域（打字机 + 背景动态光晕） -->
+  <section id="hero" class="hero">
+    <div class="glow"></div> <!-- 背景光晕层 -->
     <div class="container">
       <h1>Secure. Build. Grow.</h1>
-      <p>Your trusted partner in Managed Cybersecurity and App Development.</p>
-      <a href="services.html" class="btn">Explore Our Services</a>
+      <p>Empowering businesses through trusted cybersecurity and smart development.</p>
+      <a href="#painpoints" class="btn">Explore Our Services</a> 
+  
+      
     </div>
   </section>
 
-  <section class="value-props container">
-    <h2>Why Choose GOLA?</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Expertise You Can Trust</h3>
-        <p>Industry-certified professionals dedicated to safeguarding your business and crafting high-quality apps.</p>
+  <!-- We Understand Your Concerns -->
+  <section id="painpoints" class="painpoints">
+    <h2>We Understand Your Concerns</h2>
+    <p class="subtitle">In the digital era, security is never simple. We help businesses uncover hidden risks, strengthen defenses, and grow with confidence.</p>
+    <div class="pain-grid">
+      <div class="pain-card left-slide">
+        <h3>Protect What Matters</h3>
+        <p>Safeguard your critical data with proactive assessments and real-time protection.</p>
       </div>
-      <div class="card">
-        <h3>Proactive security against emerging threats</h3>
-        <p>Quantum Safe Readiness and AI security to keep your sensitive data safe around the clock.</p>
+      <div class="pain-card up-slide">
+        <h3>Stay Ahead of Threats</h3>
+        <p>Identify vulnerabilities before attackers do — with continuous testing, monitoring, and rapid response.</p>
       </div>
-      <div class="card">
-        <h3>Custom App Development</h3>
-        <p>Tailored web and mobile applications designed for performance, security, and scalability.</p>
-      </div>
-      <div class="card">
-        <h3>Proven Track Record</h3>
-        <p>Success stories from diverse industries demonstrate our commitment and quality.</p>
+      <div class="pain-card right-slide">
+        <h3>Grow Securely</h3>
+        <p>Build and scale your digital presence with security, innovation, and confidence.</p>
       </div>
     </div>
   </section>
 
-  <section class="cta container">
+  <!-- why choose GOLA -->
+  <section id="why" class="why">
+  <h2>Why Choose GOLA?</h2>
+
+  <div class="reason">
+    <img src="images/why1.jpg" alt="Expertise">
+    <div class="text">
+      <h3>Expertise You Can Trust</h3>
+      <p>Industry-certified professionals dedicated to safeguarding your business and crafting high-quality apps.</p>
+    </div>
+  </div>
+
+  <div class="reason reverse">
+    <img src="images/why2.jpg" alt="Innovation">
+    <div class="text">
+      <h3>Proactive security against emerging threats</h3>
+      <p>Quantum Safe Readiness and AI security to keep your sensitive data safe around the clock.</p>
+    </div>
+  </div>
+
+  <div class="reason">
+    <img src="images/why3.jpg" alt="Trust">
+    <div class="text">
+      <h3>Custom App Development</h3>
+      <p>Tailored web and mobile applications designed for performance, security, and scalability.</p>
+    </div>
+  </div>
+
+  <div class="reason reverse">
+    <img src="images/why4.jpg" alt="Vision">
+    <div class="text">
+      <h3>Proven Track Record</h3>
+      <p>Success stories from diverse industries demonstrate our commitment and quality.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 🤝 Trusted Partners -->
+<section id="partners" class="partners">
+  <h2>Our Trusted Partners</h2>
+  
+  <div class="partner-row">
+    <!-- Partner 1 -->
+    <div class="partner-card fade-in">
+      <img src="images/qiz-logo.png" alt="Qiz Security Logo">
+      <h3>Qiz Security</h3>
+      <p>introduction.</p>
+    </div>
+
+    <!-- Partner 2 -->
+    <div class="partner-card fade-in delay"> 
+      <img src="images/ibm-logo.png" alt="IBM Logo">
+      <h3>IBM </h3>
+      <p>introduction.</p>
+    </div>
+  </div>
+</section>
+  
+    <!-- 💡 Use Cases 滚动展示区 -->
+  <section id="usecases" class="usecases">
+    <div class="usecases-bg"></div>
+    <div class="usecases-container">
+      <h2>Use Cases</h2>
+      <div class="usecases-track">
+        <div class="usecase-card">
+          <img src="images/case1.jpg" alt="Case 1">
+          <h3>Singapore Wallet Expansion</h3>
+          <p>Enabled instant cross-border payments with enhanced KYC verification.</p>
+        </div>
+        <div class="usecase-card">
+          <img src="images/case2.jpg" alt="Case 2">
+          <h3>AI-Powered Security Dashboard</h3>
+          <p>Developed real-time threat intelligence visualization for enterprise clients.</p>
+        </div>
+        <div class="usecase-card">
+          <img src="images/case3.jpg" alt="Case 3">
+          <h3>Cloud Compliance Automation</h3>
+          <p>Automated compliance monitoring across hybrid cloud environments.</p>
+        </div>
+        <div class="usecase-card">
+          <img src="images/case4.jpg" alt="Case 4">
+          <h3>Zero Trust Migration</h3>
+          <p>Transitioned global infrastructure to a zero-trust architecture with MFA and SSO.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+  <!-- 🧊 最后的 CTA 毛玻璃效果 -->
+  <section id="contact" class="cta">
     <h2>Ready to Secure and Grow Your Business?</h2>
     <a href="contact.html" class="btn">Get a Free Consultation</a>
   </section>
 
-<footer>
-    <div class="container">
-      <p>&copy; 2025 GOLA SOLUTIONS PTY LTD. All rights reserved.</p>
-      <p>ABN 97 636 153 136</p>
-    </div>
+  <!-- ⚙️ 页脚 -->
+  <footer>
+    <p>&copy; 2025 GOLA SOLUTIONS PTY LTD. All rights reserved.</p>
+    <p>ABN 97 636 153 136</p>
   </footer>
-  
+
+  <!-- 引入脚本 -->
+  <script src="script.js"></script>
 </body>
 </html>
