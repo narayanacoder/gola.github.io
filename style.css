@@ -121,7 +121,7 @@ nav a:hover::after { width: 100%; }
 .btn:hover { transform: translateY(-3px) scale(1.03); }
 
 
-/* ========= 全局 section 动画基态 ========= */
+/* ========= 全局 section  ========= */
 section {
   padding: 6rem 0;
   opacity: 0;
@@ -130,7 +130,7 @@ section {
 }
 section.visible { opacity: 1; transform: translateY(0); }
 
-/* ========= Painpoints（最终优化） ========= */
+/* ========= Painpoints ========= */
 .painpoints {
   position: relative;
   text-align: center;
@@ -191,7 +191,7 @@ section.visible { opacity: 1; transform: translateY(0); }
   box-shadow: 0 20px 40px rgba(20,20,60,0.12);
 }
 
-/* ---------- 🧊 Use Cases Section (Refined clean edge version) ---------- */
+/* ---------- Use Cases Section (Refined clean edge version) ---------- */
 
 .usecases {
   position: relative;
