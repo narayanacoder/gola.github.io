@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GOLA - About Us</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
 </head>
+
 <body>
+  <div class="page-glow" aria-hidden="true"></div>
+
+  <!-- 统一导航栏 -->
   <header>
     <div class="container nav-container">
-      <div class="logo">GOLA</div>
+    <div class="logo"><a href="index.html"> GOLA</a></div>
       <nav>
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
@@ -23,55 +28,108 @@
     </div>
   </header>
 
-  <section class="about container">
-    <h1>About GOLA</h1>
-    <p> Founded on the principles of trust, innovation, and excellence, GOLA is committed to protecting your digital assets and delivering superior software solutions.</p>
-    
-    
-    <h1>Our Mission</h1>
-    <p>To empower businesses with secure technology and custom applications that drive growth and resilience.</p>
-    
-    
-    <h1>Meet Our Team</h1>
-    <div class="team-grid">
-      <div class="team-member card">
-        <h3>Narayana Madineni</h3>
-        <p>Cyber Security Director</p>
-      </div>
-      <div class="team-member card">
-        <h3>Rajeshwar Godugu</h3>
-        <p>Engineering Director</p>
-      </div>
-      <div class="team-member card">
-        <h3>Naresh Idiga </h3>
-        <p>AI Architect</p>
-      </div>
-      <div class="team-member card">
-        <h3>Stephen Chey </h3>
-        <p>Cyber Security Principal Consultant</p>
-      </div>
-      <div class="team-member card">
-        <h3>Lan Cheng </h3>
-        <p>Cyber Security Consultant</p>
-      </div>
+  <!-- 公司简介 -->
+  <section class="fade-in about-intro">
+    <div class="container">
+      <h1>About GOLA</h1>
+      <p>
+        Founded on the principles of trust, innovation, and excellence, <strong>GOLA</strong> is dedicated to protecting digital assets and developing secure, high-performing software solutions.
+      </p>
     </div>
-    <p> </p>
-    
-    <h1>Our Values</h1>
-    <ul>
-      <li>Integrity</li>
-      <li>Customer Centricity</li>
-      <li>Innovation</li>
-      <li>Collaboration</li>
-      <li>Excellence</li>
-    </ul>
   </section>
 
-<footer>
+  <!-- 使命 -->
+  <section class="fade-in mission-section">
+    <div class="container mission-layout">
+      <div class="mission-info">
+        <h2>Our Mission</h2>
+        <p>
+          To empower businesses with secure technology and custom-built applications that drive growth, resilience, and digital confidence.
+        </p>
+      </div>
+      <div class="mission-graphic">
+        <!-- <img src="img/mission.png" alt="Mission Illustration"> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 团队 -->
+  <section class="fade-in team-section">
+  <div class="container">
+    <h2>Meet Our Team</h2>
+    <p class="subtitle">Our people combine deep expertise in cybersecurity, AI, and software engineering to protect and empower businesses worldwide.</p>
+
+    <div class="team-layout">
+      <!-- 第一行：两位核心成员 -->
+      <div class="team-row two">
+        <div class="team-card">
+        <!--  <img src="img/team-narayana.jpg" alt="Narayana Madineni">   -->
+          <h3>Narayana Madineni</h3>
+          <p class="role">Cyber Security Director</p>
+          <p class="bio">With over 15 years of experience, Narayana leads enterprise cybersecurity strategy and governance across industries.</p>
+        </div>
+
+        <div class="team-card">
+          <!-- <img src="img/team-rajeshwar.jpg" alt="Rajeshwar Godugu"> -->
+          <h3>Rajeshwar Godugu</h3>
+          <p class="role">Engineering Director</p>
+          <p class="bio">Rajeshwar drives innovation and oversees high-performance engineering teams that deliver scalable solutions.</p>
+        </div>
+      </div>
+
+      <!-- 第二行：三位成员 -->
+      <div class="team-row three">
+        <div class="team-card">
+          <!-- <img src="img/team-naresh.jpg" alt="Naresh Idiga"> -->
+          <h3>Naresh Idiga</h3>
+          <p class="role">AI Architect</p>
+          <p class="bio">Naresh designs and implements AI-driven architectures that enhance data security and automation.</p>
+        </div>
+
+        <div class="team-card">
+         <!--  <img src="img/team-stephen.jpg" alt="Stephen Chey"> -->
+          <h3>Stephen Chey</h3>
+          <p class="role">Principal Consultant</p>
+          <p class="bio">Stephen provides strategic cybersecurity consulting and incident response leadership to global clients.</p>
+        </div>
+
+        <div class="team-card">
+          <!--  <img src="img/team-lan.jpg" alt="Lan Cheng"> -->
+          <h3>Lan Cheng</h3>
+          <p class="role">Cyber Security Consultant</p>
+          <p class="bio">Lan focuses on phishing simulation, awareness training, and behavioral cybersecurity programs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- 企业价值观 -->
+  <section class="fade-in values-section">
+    <div class="container">
+      <h2>Our Values</h2>
+      <ul class="values-list">
+        <li><strong>Integrity:</strong> We act with honesty and uphold ethical standards in every engagement.</li>
+        <li><strong>Customer Centricity:</strong> Our clients are at the heart of everything we do.</li>
+        <li><strong>Innovation:</strong> We embrace change and continuously evolve through creative thinking.</li>
+        <li><strong>Collaboration:</strong> We believe teamwork and transparency drive success.</li>
+        <li><strong>Excellence:</strong> We strive for quality and impact in every solution we deliver.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!DOCTYPE html><html><body><script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script></body></html>
+
+
+  <!--  -->
+  <footer>
     <div class="container">
       <p>&copy; 2025 GOLA SOLUTIONS PTY LTD. All rights reserved.</p>
       <p>ABN 97 636 153 136</p>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GOLA - Case Studies</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
 </head>
+
 <body>
+  <div class="page-glow" aria-hidden="true"></div>
+
+  <!-- 统一导航栏 -->
   <header>
     <div class="container nav-container">
-      <div class="logo">GOLA</div>
+    <div class="logo"><a href="index.html"> GOLA</a></div>
       <nav>
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
@@ -23,35 +28,70 @@
     </div>
   </header>
 
-  <section class="case-studies container">
-    <h1>Case Studies</h1>
-    <p>Explore how we've helped businesses secure their systems and build innovative applications.</p>
-
-    <div class="case-grid">
-      <article class="card">
-        <h3>Financial Firm Security Overhaul</h3>
-        <p>Implemented 24/7 monitoring and incident response reducing threats by 90%.</p>
-      </article>
-      <article class="card">
-        <h3>E-commerce Mobile App Launch</h3>
-        <p>Developed a seamless mobile app that increased customer engagement by 40%.</p>
-      </article>
-      <article class="card">
-        <h3>Healthcare Data Compliance</h3>
-        <p>Helped a healthcare provider achieve HIPAA compliance with ongoing security audits.</p>
-      </article>
-      <article class="card">
-        <h3>Custom SaaS Platform Development</h3>
-        <p>Built a scalable web application that supports thousands of concurrent users.</p>
-      </article>
+  <!-- 🌟 Page Intro -->
+  <section class="fade-in case-intro">
+    <div class="container">
+      <h1>Case Studies</h1>
+      <p>Discover how we’ve partnered with businesses to deliver security, scalability, and innovation through real-world projects.</p>
     </div>
   </section>
 
-<footer>
+  <!-- 🧩 Case Grid -->
+  <section class="fade-in case-gallery">
+    <div class="container case-grid">
+      <!-- Case 1 -->
+      <div class="case-card">
+        <img src="img/case-finance.jpg" alt="Financial Firm Security Overhaul">
+        <div class="case-info">
+          <h3>Financial Firm Security Overhaul</h3>
+          <p>We implemented 24/7 monitoring and a comprehensive incident response strategy, reducing active cyber threats by over 90%.</p>
+          <a href="#" class="btn-outline">Read More</a>
+        </div>
+      </div>
+
+      <!-- Case 2 -->
+      <div class="case-card">
+        <img src="img/case-ecommerce.jpg" alt="E-commerce Mobile App Launch">
+        <div class="case-info">
+          <h3>E-commerce Mobile App Launch</h3>
+          <p>Developed a secure, scalable mobile app that improved engagement by 40% while maintaining data integrity and performance.</p>
+          <a href="#" class="btn-outline">Read More</a>
+        </div>
+      </div>
+
+      <!-- Case 3 -->
+      <div class="case-card">
+        <img src="img/case-health.jpg" alt="Healthcare Data Compliance">
+        <div class="case-info">
+          <h3>Healthcare Data Compliance</h3>
+          <p>Enabled a healthcare provider to achieve full HIPAA compliance with robust encryption, auditing, and continuous monitoring.</p>
+          <a href="#" class="btn-outline">Read More</a>
+        </div>
+      </div>
+
+      <!-- Case 4 -->
+      <div class="case-card">
+        <img src="img/case-saas.jpg" alt="Custom SaaS Platform Development">
+        <div class="case-info">
+          <h3>Custom SaaS Platform Development</h3>
+          <p>Built a cloud-native SaaS platform supporting thousands of concurrent users with automated scaling and strong security.</p>
+          <a href="#" class="btn-outline">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!DOCTYPE html><html><body><script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script></body></html>
+
+
+  <!-- 页脚 -->
+  <footer>
     <div class="container">
       <p>&copy; 2025 GOLA SOLUTIONS PTY LTD. All rights reserved.</p>
       <p>ABN 97 636 153 136</p>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

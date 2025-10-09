@@ -121,7 +121,7 @@ nav a:hover::after { width: 100%; }
 .btn:hover { transform: translateY(-3px) scale(1.03); }
 
 
-/* ========= 全局 section  ========= */
+/* ========= 全局 section 动画基态 ========= */
 section {
   padding: 6rem 0;
   opacity: 0;
@@ -130,7 +130,7 @@ section {
 }
 section.visible { opacity: 1; transform: translateY(0); }
 
-/* ========= Painpoints ========= */
+/* ========= Painpoints（最终优化） ========= */
 .painpoints {
   position: relative;
   text-align: center;
@@ -191,7 +191,7 @@ section.visible { opacity: 1; transform: translateY(0); }
   box-shadow: 0 20px 40px rgba(20,20,60,0.12);
 }
 
-/* ---------- Use Cases Section (Refined clean edge version) ---------- */
+/* ---------- 🧊 Use Cases Section (Refined clean edge version) ---------- */
 
 .usecases {
   position: relative;
@@ -239,7 +239,7 @@ section.visible { opacity: 1; transform: translateY(0); }
 
 .usecases-container > h2 {
   position: absolute;       
-  top: 0.2rem;             
+  top: 0.31rem;             
   left: 3rem;               
   font-size: 2.8rem;       
   font-weight: 1200;        
@@ -276,7 +276,7 @@ section.visible { opacity: 1; transform: translateY(0); }
   gap: 2rem;
   width: max-content;
   height: 230px;
-  animation: scrollTrack 26s linear infinite;
+  animation: scrollTrack 27s linear infinite;
   margin-left: 2rem;
 }
 
@@ -384,13 +384,13 @@ section.visible { opacity: 1; transform: translateY(0); }
 .cta {
   position: relative;
   max-width: 1000px;
-  margin: 6rem auto 6rem; /* 🔹稍微下移整体，让底部呼吸感更好 */
+  margin: 6rem auto 6rem; 
   text-align: center;
-  padding: 4rem 2rem; /* 🔹轻微增厚内边距 */
-  background: rgba(255, 255, 255, 0.6); /* 🔹比 var(--card-bg) 更浅、更透 */
+  padding: 4rem 2rem; 
+  background: rgba(255, 255, 255, 0.6); 
   backdrop-filter: blur(18px);
   border-radius: var(--radius-xl);
-  box-shadow: 0 15px 40px rgba(150, 130, 255, 0.15); /* 🔹轻柔蓝紫阴影 */
+  box-shadow: 0 15px 40px rgba(150, 130, 255, 0.15); 
   transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -400,7 +400,7 @@ section.visible { opacity: 1; transform: translateY(0); }
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(160,140,255,0.6), rgba(100,200,255,0.6)); /* 🔹蓝紫渐变边框 */
+  background: linear-gradient(135deg, rgba(160,140,255,0.6), rgba(100,200,255,0.6)); 
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -776,4 +776,764 @@ footer {
   transform: translateY(-2px);
 }
 
+/* =========================
+   🧩 Services Page Layout
+   ========================= */
+.service-block {
+  padding: 6rem 0;
+}
 
+.service-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-bottom: 6rem;
+}
+
+.service-layout.reverse {
+  flex-direction: row-reverse;
+}
+
+.service-info {
+  flex: 1;
+  max-width: 35%;
+}
+
+.service-info h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #5b9df9, #9b5df7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.service-info p {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.service-details {
+  flex: 1.5;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.service-card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(120,120,255,0.15);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(100,120,255,0.25);
+}
+
+.service-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.service-card p {
+  color: var(--text-light);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.service-details.two-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ===== 让所有 service 卡片稍微大一点 ===== */
+.service-card {
+  padding: 2rem 1.8rem; /* 原来是 1.5rem */
+  font-size: 1.05rem;   /* 让内容稍大一点 */
+}
+
+.service-layout.reverse .service-details.two-cols {
+  max-width: 85%;
+  margin-left: auto;
+}
+
+/* =========================
+   🤝 Partner Detail Layout
+   ========================= */
+.partner-intro {
+  padding: 8rem 0 5rem;
+  text-align: center;
+}
+.partner-intro h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #5b9df9, #9b5df7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+.partner-intro p {
+  font-size: 1.1rem;
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+.partner-block {
+  padding: 6rem 0;
+  background: #fafaff;
+}
+.partner-block.dark {
+  background: #0f0f16;
+  color: #f2f2f8;
+}
+.partner-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+.partner-layout.reverse {
+  flex-direction: row-reverse;
+}
+.partner-image img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 12px;
+  filter: drop-shadow(0 4px 20px rgba(100, 120, 255, 0.25));
+}
+.partner-info {
+  flex: 1;
+  min-width: 320px;
+}
+.partner-info h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #5b9df9, #9b5df7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.partner-block.dark .partner-info h2 {
+  background: linear-gradient(135deg, #ffffff, #ccccff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.partner-info p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  max-width: 600px;
+}
+.partner-block.dark .partner-info p {
+  color: #d9d9e0;
+}
+.partner-info .btn {
+  margin-top: 2rem;
+  display: inline-block;
+}
+
+/* =========================
+   🏢 About Page Layout
+   ========================= */
+
+/* 公司简介 */
+.about-intro {
+  padding: 8rem 0 6rem;
+  text-align: center;
+}
+.about-intro h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #5b9df9, #9b5df7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+.about-intro p {
+  font-size: 1.15rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* 使命 */
+.mission-section {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  padding: 6rem 0;
+}
+.mission-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.mission-info {
+  flex: 1;
+  min-width: 320px;
+}
+.mission-info h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #5b9df9, #9b5df7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+.mission-info p {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+.mission-graphic img {
+  width: 400px;
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(150,130,255,0.15);
+}
+
+/* 团队 */
+.team-section {
+  padding: 8rem 0;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f8ff 100%);
+  text-align: center;
+}
+.team-section h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #5b9df9, #9b5df7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+.team-section .subtitle {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  margin-bottom: 4rem;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+.team-member {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(120,120,255,0.15);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 280px;
+}
+.team-member:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(100,120,255,0.25);
+}
+.team-member h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.team-member p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+/* 企业价值观 */
+.values-section {
+  padding: 8rem 0;
+  background: #0f0f16;
+  color: #fff;
+}
+.values-section h2 {
+  font-size: 2.3rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #ffffff, #ccccff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.values-list {
+  max-width: 720px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #d9d9e0;
+}
+.values-list li {
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   👥 Professional Team Layout
+   ========================= */
+.team-section {
+  padding: 8rem 0;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f8ff 100%);
+  text-align: center;
+}
+
+.team-section h2 {
+  font-size: 2.6rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #5b9df9, #9b5df7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.team-section .subtitle {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  margin-bottom: 4rem;
+}
+
+.team-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.team-row {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+/* 上两人，下三人 */
+.team-row.two .team-card {
+  flex: 1 1 420px;
+  max-width: 440px;
+}
+.team-row.three .team-card {
+  flex: 1 1 300px;
+  max-width: 320px;
+}
+
+.team-card {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(140,130,255,0.12);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(100,120,255,0.25);
+}
+
+.team-card img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 3px solid rgba(150,140,255,0.25);
+}
+
+.team-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 1.2rem 1.5rem 0.3rem;
+}
+
+.team-card .role {
+  font-size: 1rem;
+  color: #6666aa;
+  font-weight: 600;
+  margin: 0 1.5rem 0.8rem;
+}
+
+.team-card .bio {
+  font-size: 0.96rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin: 0 1.5rem 1.5rem;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .team-row.two, .team-row.three {
+    flex-direction: column;
+    align-items: center;
+  }
+  .team-card img {
+    height: 380px;
+  }
+}
+
+/* =========================
+   📂 Case Studies Layout
+   ========================= */
+.case-intro {
+  padding: 8rem 0 5rem;
+  text-align: center;
+}
+.case-intro h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #5b9df9, #9b5df7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+.case-intro p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Grid Layout */
+.case-gallery {
+  padding: 4rem 0 8rem;
+}
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+  justify-items: center;
+}
+
+.case-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(120,120,255,0.15);
+  transition: all 0.35s ease;
+  max-width: 420px;
+}
+
+.case-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(100,120,255,0.25);
+}
+
+.case-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 3px solid rgba(150, 130, 255, 0.2);
+}
+
+.case-info {
+  padding: 1.8rem;
+  text-align: left;
+}
+
+.case-info h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  color: #1a1a33;
+}
+
+.case-info p {
+  color: var(--text-light);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.btn-outline {
+  display: inline-block;
+  border: 1.5px solid #5b9df9;
+  color: #5b9df9;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: linear-gradient(135deg, #5b9df9, #9b5df7);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .case-info {
+    text-align: center;
+  }
+}
+
+/* =========================
+   📰 Blog Page Styles
+   ========================= */
+
+/* Intro Section */
+.blog-intro {
+  padding: 8rem 0 5rem;
+  text-align: center;
+}
+.blog-intro h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #5b9df9, #9b5df7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+.blog-intro p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Featured Article */
+.blog-featured {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  padding: 6rem 0;
+}
+.feature-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.feature-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(100,120,255,0.2);
+}
+.feature-info {
+  flex: 1;
+  min-width: 320px;
+}
+.feature-info .tag {
+  background: linear-gradient(135deg, #5b9df9, #9b5df7);
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.feature-info h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 1rem 0;
+  color: #1a1a33;
+}
+.feature-info p {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* Blog Grid */
+.blog-grid-section {
+  padding: 6rem 0 8rem;
+}
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  justify-items: center;
+}
+.blog-card {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(120,120,255,0.15);
+  overflow: hidden;
+  transition: all 0.35s ease;
+  max-width: 380px;
+}
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(100,120,255,0.25);
+}
+.blog-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.blog-content {
+  padding: 1.5rem;
+  text-align: left;
+}
+.blog-content .tag {
+  background: rgba(150,140,255,0.15);
+  color: #5b5bf9;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+.blog-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0.8rem 0;
+  color: #1a1a33;
+}
+.blog-content p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.read-more {
+  font-weight: 600;
+  color: #5b9df9;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.read-more:hover {
+  color: #9b5df7;
+}
+
+/* =========================
+   ✉️ Contact Page Layout
+   ========================= */
+.contact-intro {
+  padding: 8rem 0 4rem;
+  text-align: center;
+}
+.contact-intro h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #5b9df9, #9b5df7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+.contact-intro p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.contact-layout {
+  padding: 6rem 0;
+}
+.contact-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+/* 表单 */
+.contact-form {
+  flex: 1 1 500px;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(120,120,255,0.15);
+}
+.contact-form h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(180,180,255,0.3);
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  background: rgba(255,255,255,0.6);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #5b9df9;
+  box-shadow: 0 0 0 3px rgba(90,150,255,0.15);
+}
+.contact-form textarea {
+  height: 150px;
+  resize: none;
+}
+
+/* 公司信息 */
+.contact-info {
+  flex: 1 1 300px;
+}
+.contact-info h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  color: var(--text-light);
+}
+.contact-info li {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.contact-info a {
+  color: #5b9df9;
+  text-decoration: none;
+}
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* 图标 */
+.social-links a img {
+  width: 30px;
+  height: 30px;
+  margin-right: 1rem;
+  transition: transform 0.3s ease;
+}
+.social-links a img:hover {
+  transform: scale(1.1);
+}
+
+/* 地图 */
+.map-section iframe {
+  border: none;
+  width: 100%;
+  display: block;
+  filter: grayscale(10%) brightness(98%);
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .contact-grid {
+    flex-direction: column;
+  }
+  .contact-form, .contact-info {
+    max-width: 100%;
+  }
+}

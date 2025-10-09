@@ -4,13 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GOLA - Contact Us</title>
-  <link rel="stylesheet" href="style.css" />
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <div class="page-glow" aria-hidden="true"></div>
+
+  <!-- 统一导航栏 -->
   <header>
     <div class="container nav-container">
-      <div class="logo">GOLA</div>
+    <div class="logo"><a href="index.html"> GOLA</a></div>
       <nav>
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
@@ -23,19 +28,61 @@
     </div>
   </header>
 
-  <section class="contact container">
-    <h1>Get a Quote or Contact Us</h1>
-    <p>Fill out the form below and we will get back to you promptly.</p>
-
-    <form id="contactForm" novalidate>
-      <input type="text" id="name" name="name" placeholder="Your Name" required />
-      <input type="email" id="email" name="email" placeholder="Your Email" required />
-      <input type="text" id="company" name="company" placeholder="Company (optional)" />
-      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
-      <p id="formResponse"></p>
-    </form>
+  <!-- 🌟 联系页面标题 -->
+  <section class="fade-in contact-intro">
+    <div class="container">
+      <h1>Get in Touch</h1>
+      <p>Whether you're looking to enhance security, start a new project, or simply say hello — we’d love to hear from you.</p>
+    </div>
   </section>
+
+  <!-- 📞 联系表单 + 信息 -->
+  <section class="fade-in contact-layout">
+    <div class="container contact-grid">
+      <!-- 表单 -->
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form id="contactForm" novalidate>
+          <input type="text" id="name" name="name" placeholder="Your Name" required />
+          <input type="email" id="email" name="email" placeholder="Your Email" required />
+          <input type="text" id="company" name="company" placeholder="Company (optional)" />
+          <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+          <p id="formResponse"></p>
+        </form>
+      </div>
+
+      <!-- 公司联系信息 
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:info@golacyber.ai">info@golacyber.ai</a></li>
+          <li><strong>Phone:</strong> +61 7 5555 1234</li>
+          <li><strong>Address:</strong> Level 2, 23 Innovation Dr, Gold Coast, QLD 4227</li>
+        </ul>
+        <div class="social-links">
+          <a href="#"><img src="img/icon-linkedin.svg" alt="LinkedIn"></a>
+          <a href="#"><img src="img/icon-twitter.svg" alt="Twitter"></a>
+          <a href="#"><img src="img/icon-email.svg" alt="Email"></a>
+        </div>
+      </div> -->
+    </div>
+  </section>
+
+  <!-- 🗺️ 地图区 
+  <section class="fade-in map-section">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3537.281746699183!2d153.3824982155088!3d-27.96179278268847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b910f12d090eac9%3A0x7d96e2e91e73e86b!2sGriffith%20University%20Gold%20Coast!5e0!3m2!1sen!2sau!4v1696750052093!5m2!1sen!2sau"
+      width="100%"
+      height="400"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+    ></iframe>
+  </section> -->
+
+  <!DOCTYPE html><html><body><script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script></body></html>
+
 
   <footer>
     <div class="container">

@@ -4,55 +4,98 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GOLA - Blog & Insights</title>
+
+   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <div class="page-glow" aria-hidden="true"></div>
+
   <header>
     <div class="container nav-container">
-      <div class="logo">GOLA</div>
+    <div class="logo"><a href="index.html"> GOLA</a></div>
       <nav>
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="partners.html">Partners</a>
-        <a href="about.html">About Us</a>
+        <a href="about.html" class="active">About Us</a>
         <a href="case-studies.html">Case Studies</a>
-        <a href="blog.html" class="active">Blog</a>
+        <a href="blog.html">Blog</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <section class="blog container">
-    <h1>Latest Insights</h1>
-    <p>Stay up-to-date with cybersecurity trends and app development best practices.</p>
-
-    <div class="blog-grid">
-      <article class="card">
-        <h3>A practical guide to building agents </h3>
-        <p> OpenAI released a guide designed for product and engineering teams exploring how to build their first agents,
-distilling insights from numerous customer deployments into practical and actionable best
-practices.</p>
-        <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf" class="read-more">Read More</a>
-      </article>
-      <article class="card">
-        <h3>Building Scalable Mobile Apps: A Developer's Guide</h3>
-        <p>Tips and tricks for creating performant and user-friendly mobile applications.</p>
-        <a href="#" class="read-more">Read More</a>
-      </article>
-      <article class="card">
-        <h3>Why Compliance Matters for Your Business</h3>
-        <p>Understand the importance of regulatory compliance and how to achieve it.</p>
-        <a href="#" class="read-more">Read More</a>
-      </article>
+  <!-- 🌟 Blog Intro -->
+  <section class="fade-in blog-intro">
+    <div class="container">
+      <h1>Insights & Resources</h1>
+      <p>Explore the latest trends, technical insights, and expert guidance on cybersecurity and digital innovation.</p>
     </div>
   </section>
 
-<footer>
+  <!-- 🌍 Featured Article -->
+  <section class="fade-in blog-featured">
+    <div class="container feature-layout">
+      <div class="feature-image">
+        <img src="img/feature-ai.jpg" alt="AI Security">
+      </div>
+      <div class="feature-info">
+        <span class="tag">Featured</span>
+        <h2>A Practical Guide to Building AI Agents</h2>
+        <p>
+          OpenAI released a new practical guide for product and engineering teams exploring agent development — distilling
+          real-world lessons into actionable best practices for secure deployment.
+        </p>
+        <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf" target="_blank" class="btn">Read Article</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📰 Blog Grid -->
+  <section class="fade-in blog-grid-section">
+    <div class="container">
+      <div class="blog-grid">
+        <article class="blog-card">
+          <img src="img/blog-mobile.jpg" alt="Building Scalable Mobile Apps">
+          <div class="blog-content">
+            <span class="tag">Development</span>
+            <h3>Building Scalable Mobile Apps: A Developer's Guide</h3>
+            <p>Discover how to build apps that scale effortlessly while maintaining top-notch performance and user experience.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <img src="img/blog-compliance.jpg" alt="Why Compliance Matters">
+          <div class="blog-content">
+            <span class="tag">Cybersecurity</span>
+            <h3>Why Compliance Matters for Your Business</h3>
+            <p>Understand why compliance is more than regulation — it’s the foundation of customer trust and operational resilience.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <img src="img/blog-cloud.jpg" alt="Securing the Cloud">
+          <div class="blog-content">
+            <span class="tag">Cloud Security</span>
+            <h3>Securing the Cloud: Best Practices for 2025</h3>
+            <p>Explore modern approaches to cloud security — from IAM frameworks to automated incident response.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer>
     <div class="container">
       <p>&copy; 2025 GOLA SOLUTIONS PTY LTD. All rights reserved.</p>
       <p>ABN 97 636 153 136</p>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

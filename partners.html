@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GOLA - Partners</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
 </head>
+
 <body>
+  <div class="page-glow" aria-hidden="true"></div>
+
+  <!-- 统一导航栏 -->
   <header>
     <div class="container nav-container">
-      <div class="logo">GOLA</div>
+    <div class="logo"><a href="index.html"> GOLA</a></div>
       <nav>
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
@@ -23,23 +28,58 @@
     </div>
   </header>
 
-  <section class="partners container">
-    <h1>Partners</h1>
-    <p>We work with world class product vendors to deliver the best of breed technologies to our clients.</p>
-
-    <div class="case-grid">
-      <article class="card">
-        <h3><a href="https://qizsecurity.com/">Qiz Security</a> </h3>
-        <p>Transform from cryptography chaos to quantum resilience.</p>
-      </article>
+  <!-- 🌟 Page Intro -->
+  <section class="fade-in partner-intro">
+    <div class="container">
+      <h1>Our Partners</h1>
+      <p>We collaborate with world-leading technology partners to deliver innovative, secure, and future-ready solutions that empower our clients to succeed.</p>
     </div>
   </section>
 
-<footer>
+  <!-- 🤝 Qiz Security -->
+  <section class="fade-in partner-block">
+    <div class="container partner-layout">
+      <div class="partner-image">
+        <img src="img/QIZ.png" alt="Qiz Security">
+      </div>
+      <div class="partner-info">
+        <h2>Qiz Security</h2>
+        <p>
+          Qiz Security specializes in cryptography management and post-quantum security, helping organizations transition to quantum-safe encryption.
+          Founded by experts in cybersecurity and cryptography, Qiz enables clear visibility and control over cryptographic assets to stay secure in the quantum era.
+        </p>
+        <a href="https://qizsecurity.com/" target="_blank" class="btn">Visit Qiz Website</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🤝 IBM -->
+  <section class="fade-in partner-block dark">
+    <div class="container partner-layout reverse">
+      <div class="partner-image">
+        <img src="img/IBM.png" alt="IBM">
+      </div>
+      <div class="partner-info">
+        <h2>IBM</h2>
+        <p>
+          IBM is a global leader in cloud computing, AI, and cybersecurity, providing trusted enterprise solutions for over a century.
+          With deep expertise in digital transformation and data protection, IBM empowers organizations to innovate securely and build resilient infrastructures.
+        </p>
+        <a href="https://www.ibm.com" target="_blank" class="btn">Visit IBM Website</a>
+      </div>
+    </div>
+  </section>
+
+  <!DOCTYPE html><html><body><script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script></body></html>
+
+
+  <footer>
     <div class="container">
       <p>&copy; 2025 GOLA SOLUTIONS PTY LTD. All rights reserved.</p>
       <p>ABN 97 636 153 136</p>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

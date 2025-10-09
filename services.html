@@ -2,18 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GOLA - Services Overview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GOLA - Our Services</title>
+
+   <!-- Font style -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+
+  <!-- 样式表链接 -->
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <!-- navigation bar & Logo） -->
+  <div class="page-glow" aria-hidden="true"></div>
   <header>
     <div class="container nav-container">
-      <div class="logo">GOLA</div>
+    <div class="logo"><a href="index.html"> GOLA</a></div>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html" class="active">Services</a>
+        <a href="index.html" >Home</a>
+        <a href="services.html" class="active">Services </a>
         <a href="partners.html">Partners</a>
         <a href="about.html">About Us</a>
         <a href="case-studies.html">Case Studies</a>
@@ -23,25 +29,89 @@
     </div>
   </header>
 
-  <section class="services container">
-    <h1>Our Services</h1>
-    <div class="card-grid">
-      <a href="cybersecurity.html" class="card link-card">
-        <h3>Managed Cybersecurity Services</h3>
-        <p>Protect your business with next generation cybersecurity solutions.</p>
-      </a>
-      <a href="app-development.html" class="card link-card">
-        <h3>App Development</h3>
-        <p>Custom AI enabled web and mobile applications crafted for your unique business needs.</p>
-      </a>
-    </div>
-  </section>
+  <!-- 主体部分 -->
+  <main class="container" style="padding-top:9rem;">
 
-<footer>
+    <!-- 第一块：Managed Cybersecurity Services -->
+    <section class="fade-in service-block">
+      <div class="service-layout">
+        <!-- 左边介绍 -->
+        <div class="service-info">
+          <h1>Smart & Secure Cyber Defense</h1>
+          <p>Protect your business with next-generation cybersecurity solutions designed to safeguard your data, infrastructure, and reputation.</p>
+        </div>
+
+        <!-- 右边内容卡片 -->
+        <div class="service-details">
+          <div class="service-card">
+            <h3>PQC Readiness</h3>
+            <p>Discover, prioritise, and remediate cryptographic risks before the quantum era arrives.</p>
+          </div>
+          <div class="service-card">
+            <h3>Penetration Testing</h3>
+            <p>Comprehensive testing for your applications, networks, and APIs to ensure strong resilience.</p>
+          </div>
+          <div class="service-card">
+            <h3>Compliance Support</h3>
+            <p>Ensure your business meets regulatory and industry-specific standards such as ISO 27001 or ASD Essential 8.</p>
+          </div>
+          <div class="service-card">
+            <h3>Vulnerability Assessments</h3>
+            <p>Identify and mitigate potential weaknesses through continuous vulnerability scanning and monitoring.</p>
+          </div>
+          <div class="service-card">
+            <h3>Employee Training</h3>
+            <p>Empower your staff to recognize, respond to, and prevent common cyber threats effectively.</p>
+          </div>
+          <div class="service-card">
+            <h3>Cloud Security & Monitoring</h3>
+            <p>Secure your cloud infrastructure with continuous visibility and threat detection across AWS, Azure, and GCP.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第二块：App Development -->
+    <section class="fade-in service-block">
+      <div class="service-layout reverse">
+        <!-- 左边介绍 -->
+        <div class="service-info">
+          <h1>App Development</h1>
+          <p>Custom AI-enabled web and mobile applications crafted for your unique business needs, built with security and scalability in mind.</p>
+        </div>
+
+        <!-- 右边内容卡片 -->
+        <div class="service-details two-cols">
+          <div class="service-card">
+            <h3>Web & Mobile Solutions</h3>
+            <p>Build responsive, intuitive, and high-performing apps using modern frameworks and secure architectures.</p>
+          </div>
+          <div class="service-card">
+            <h3>AI Integration</h3>
+            <p>Enhance user experiences and automate workflows with AI-driven insights and chat features.</p>
+          </div>
+          <div class="service-card">
+            <h3>Scalable Cloud Deployment</h3>
+            <p>Host and manage your apps securely on AWS, Azure, or GCP with continuous monitoring and auto-scaling.</p>
+          </div>
+          <div class="service-card">
+            <h3>API Security</h3>
+            <p>Ensure seamless and safe communication between your systems using strong authentication and encryption standards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 页脚 -->
+  <footer>
     <div class="container">
       <p>&copy; 2025 GOLA SOLUTIONS PTY LTD. All rights reserved.</p>
       <p>ABN 97 636 153 136</p>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
