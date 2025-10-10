@@ -1,3 +1,5 @@
+
+
 /* --------- 全局变量 --------- */
 :root {
   --primary-gradient: linear-gradient(135deg, #5b9df9 0%, #9b5df7 100%);
@@ -28,22 +30,32 @@ body {
   margin: 0 auto;
 }
 
-/* ========= 顶部导航 ========= */
+/* ========= 统一导航栏样式 ========= */
 header {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px; /* ✅ 统一高度 */
+  display: flex;
+  align-items: center;
   background: rgba(172, 156, 236, 0.65);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   z-index: 1000;
-  transition: background .35s var(--easing);
+  transition: background 0.35s ease;
 }
+
 .nav-container {
-  height: 64px;
+  height: 100%;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .logo {
   font-weight: 900;
   font-size: 1.5rem;
@@ -51,25 +63,36 @@ header {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 nav a {
   text-decoration: none;
   color: var(--text-dark);
   font-weight: 700;
+  font-size: 1rem;
   margin-left: 1.4rem;
   position: relative;
-  transition: transform .25s var(--easing), color .25s var(--easing);
+  transition: transform 0.25s var(--easing), color 0.25s var(--easing);
 }
 
-nav a:hover { transform: translateY(-1px); }
+nav a:hover {
+  transform: translateY(-1px);
+}
+
 nav a::after {
   content: "";
   position: absolute;
-  left: 0; bottom: -6px;
-  height: 2px; width: 0%;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 0%;
   background: var(--primary-gradient);
-  transition: width .25s var(--easing);
+  transition: width 0.25s var(--easing);
 }
-nav a:hover::after { width: 100%; }
+
+nav a:hover::after {
+  width: 100%;
+}
+
 
 /* ========= Hero ========= */
 .hero {
@@ -205,7 +228,6 @@ section.visible { opacity: 1; transform: translateY(0); }
               linear-gradient(180deg, #ffffff 0%, #fff9f4 100%);
 }
 
-
 /* 容器需要有高度，轨道绝对定位才能垂直居中 */
 .usecases-container {
   position: relative;
@@ -248,7 +270,7 @@ section.visible { opacity: 1; transform: translateY(0); }
   pointer-events: none;      
 }
 
-/* 🌟 主滚动轨道（第一条） */
+/* 🌟 track（main） */
 .usecases-track {
   position: absolute;
   top: 60%;
@@ -264,7 +286,7 @@ section.visible { opacity: 1; transform: translateY(0); }
   will-change: transform;
 }
 
-/* 🌟 第二条轨道（克隆轨道） */
+/* 🌟 The second track 克隆轨道） */
 .usecases-container .usecases-track + .usecases-track {
   position: absolute;
   top: 60%;
@@ -276,7 +298,7 @@ section.visible { opacity: 1; transform: translateY(0); }
   gap: 2rem;
   width: max-content;
   height: 230px;
-  animation: scrollTrack 27s linear infinite;
+  animation: scrollTrack 26s linear infinite;
   margin-left: 2rem;
 }
 
@@ -779,7 +801,8 @@ footer {
 /* =========================
    🧩 Services Page Layout
    ========================= */
-.service-block {
+
+   .service-block {
   padding: 6rem 0;
 }
 
@@ -888,7 +911,7 @@ footer {
 }
 
 .partner-block {
-  padding: 6rem 0;
+  padding: 7rem 0;
   background: #fafaff;
 }
 .partner-block.dark {
@@ -906,10 +929,13 @@ footer {
   flex-direction: row-reverse;
 }
 .partner-image img {
-  max-width: 200px;
+  max-width: 360px;
   height: auto;
   border-radius: 12px;
   filter: drop-shadow(0 4px 20px rgba(100, 120, 255, 0.25));
+}
+.partner-image img:hover {
+  transform: scale(1.05); /* 鼠标悬停时轻微放大 */
 }
 .partner-info {
   flex: 1;
@@ -938,7 +964,7 @@ footer {
   color: #d9d9e0;
 }
 .partner-info .btn {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   display: inline-block;
 }
 
@@ -946,7 +972,6 @@ footer {
    🏢 About Page Layout
    ========================= */
 
-/* 公司简介 */
 .about-intro {
   padding: 8rem 0 6rem;
   text-align: center;
@@ -967,7 +992,7 @@ footer {
   line-height: 1.8;
 }
 
-/* 使命 */
+/* mission */
 .mission-section {
   background: rgba(255,255,255,0.7);
   backdrop-filter: blur(10px);
@@ -1004,7 +1029,7 @@ footer {
   box-shadow: 0 10px 35px rgba(150,130,255,0.15);
 }
 
-/* 团队 */
+/* team */
 .team-section {
   padding: 8rem 0;
   background: linear-gradient(180deg, #ffffff 0%, #f8f8ff 100%);
@@ -1053,7 +1078,7 @@ footer {
   color: var(--text-light);
 }
 
-/* 企业价值观 */
+/* corporate values */
 .values-section {
   padding: 8rem 0;
   background: #0f0f16;
@@ -1536,4 +1561,356 @@ footer {
   .contact-form, .contact-info {
     max-width: 100%;
   }
+}
+
+
+#typewriter {
+  display: inline-block;
+  border-right: 2px solid #007bff;
+  padding-right: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+  50% { border-color: transparent; }
+}
+
+/* ===============================
+   ✨ Partner Page Clean Override
+   =============================== */
+
+/* 调整布局对齐 */
+.partner-layout {
+  align-items: flex-start !important;
+  gap: 3.5rem !important;
+}
+
+/* ✅ Logo 图标变大、更有视觉中心 */
+.partner-image img {
+  max-width: 420px !important; /* 原来360px，现在放大 */
+  height: auto !important;
+  border-radius: 14px;
+  filter: drop-shadow(0 4px 24px rgba(100, 120, 255, 0.25));
+  transition: transform 0.3s ease;
+}
+.partner-image img:hover {
+  transform: scale(1.06);
+}
+
+/* ===== Partner page hard override (clean & symmetric) ===== */
+
+/* 让两段上下留白严格一致 */
+.partner-intro { padding: 8rem 0 6.5rem !important; }
+.partner-block,
+.partner-block.dark { padding: 5.5rem 0 !important; }
+
+/* 布局：顶对齐 + 固定 Logo 列宽，信息列自适应 */
+.partner-block .partner-layout { align-items: flex-start !important; gap: 3rem !important; }
+.partner-block .partner-image { 
+  flex: 0 0 clamp(320px, 28vw, 420px) !important;  /* 固定一列宽度，确保两段对称 */
+}
+.partner-block .partner-image img {
+  width: 85% !important;      /* 用 width 填满列来“放大”，跳过原始像素/旧 max-width 限制 */
+  height: auto !important;
+  max-width: none !important;  /* 避免被旧的 360px 上限拦住（你当前 CSS 有这个） */
+  display: block;
+  border-radius: 14px;
+  filter: drop-shadow(0 4px 24px rgba(100,120,255,.25));
+  transition: transform .3s ease;
+}
+.partner-block .partner-image img:hover { transform: scale(1.05); }
+
+.partner-block .partner-info { flex: 1 1 auto !important; min-width: 320px; }
+
+/* 极简小按钮 */
+.partner-block .partner-info .btn{
+  display: inline-block !important;
+  margin-top: 1.1rem !important;
+  padding: 0.35rem 0.9rem !important;
+  font-size: .85rem !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  background: linear-gradient(135deg,#5b9df9,#9b5df7);
+  color: #fff !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 10px rgba(90,100,255,.22);
+}
+
+.partner-block:not(.dark) .partner-layout {
+  gap: 5rem !important;   /* 原来是 3.5rem, 略微增加文字与logo间距 */
+}
+
+/* =====================================================
+   🌌 Real Circular Aura Glow for Service Sections
+   ===================================================== */
+
+/* 🟦 Smart & Secure Cyber Defense */
+#cyber-defense {
+  position: relative;
+  overflow: hidden;
+  background: none;
+  z-index: 1;
+}
+
+/* 独立光圈 - 浮在 section 内部 */
+#cyber-defense::after {
+  content: "";
+  position: absolute;
+  top: 40%;          /* 光圈中心大致在内容下方 */
+  left: 30%;
+  width: 600px;      /* 光圈直径大小（可调） */
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(130, 160, 255, 0.45) 0%,   /* 中心光亮 */
+    rgba(150, 130, 255, 0.18) 40%,  /* 中层 */
+    rgba(255, 255, 255, 0) 80%      /* 边缘透明 */
+  );
+  transform: translate(-50%, -50%);
+  filter: blur(160px);               /* 模糊柔化边界 */
+  z-index: -1;
+}
+
+
+/* 🟧 App Development */
+#app-development {
+  position: relative;
+  overflow: hidden;
+  background: none;
+  z-index: 1;
+}
+
+/* 第二个独立光圈 - 位于右下角 */
+#app-development::after {
+  content: "";
+  position: absolute;
+  bottom: 40%;
+  right: 15%;
+  width: 400px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 190, 120, 0.4) 0%,     /* 橙色柔光中心 */
+    rgba(255, 150, 100, 0.18) 45%,   /* 中层柔光 */
+    rgba(255, 255, 255, 0) 70%       /* 渐隐 */
+  );
+  transform: translate(50%, 50%);
+  filter: blur(160px);
+  z-index: -1;
+}
+/* 让外层容器透明 + 允许光晕外溢 */
+.services-section,
+#cyber-defense,
+#app-development {
+  background: transparent !important;  /* 透明背景 */
+  overflow: visible !important;        /* 允许发光溢出边界 */
+  position: relative;                  /* 供伪元素定位 */
+  z-index: 1;
+}
+
+/* 如果页面有 .container 或 .services-layout */
+.services-section .container,
+.services-layout {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* 🌟 OUR MISSION - 白底柔光风格 */
+
+.mission-section {
+  position: relative;
+  background: #ffffff;
+  text-align: center;
+  padding: 9rem 0 6rem;
+  overflow: visible;
+  border: none;
+  z-index: 2;
+  box-shadow: none;
+}
+
+.mission-section::before{
+  content: "";
+  position: absolute;
+  width: 750px;
+  height: 750px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(155,93,247,0.18) 0%, transparent 70%);
+  filter: blur(120px);
+  bottom: -180px;   /* ↓ 稍微往下放 */
+  left: 25%;        /* ← 中间偏左一点 */
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.mission-section::before {
+  bottom: -100px;  /* 左下角光晕 */
+  left: -200px;
+}
+.mission-section::after {
+  top: -150px;     /* 右上角淡光晕 */
+  right: -150px;
+}
+
+.mission-section h2 {
+  font-size: 5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #5b9df9, #9b5df7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.mission-section p {
+  max-width: 850px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-size: 1.15rem;
+  color: #333;
+  position: relative;
+  z-index: 2;
+}
+
+/* 💫 OUR VALUES - 光晕溢出到 Mission，保持柔和衔接 */
+.values-section {
+  position: relative;
+  background: #ffffff;
+  color: #111;
+  padding: 8rem 0;
+  overflow: visible;
+  margin-top: -6rem; /* ⚡完全去掉那两条线 */
+  border: none;
+  z-index: 1;
+  box-shadow: none;
+}
+
+.values-section::after {
+  content: "";
+  position: absolute;
+  width: 550px;         /* 🔹 缩小范围 */
+  height: 550px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(155,93,247,0.15) 0%, transparent 70%);
+  filter: blur(100px);
+  bottom: -150px;        /* 🔽 稍微下移 */
+  right: -100px;
+  z-index: 0;
+}
+.values-section::before {
+  top: -300px;    /* 光晕上溢入 Mission 区 */
+  left: -200px;
+}
+.values-section::after {
+  bottom: -200px;
+  right: -150px;
+}
+
+.values-section h2 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #5b9df9, #9b5df7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* 五个 Value 卡片（单行、毛玻璃效果） */
+.values-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.value-card {
+  flex: 1;
+  min-width: 200px;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(120,120,255,0.1);
+  transition: all 0.3s ease;
+}
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(100,120,255,0.25);
+}
+.value-card h3 {
+  color: #4b4bb0;
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+.value-card p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* 🌌 MEET OUR TEAM - 深色科技风 + 可见标题 */
+.team-section {
+  position: relative;
+  padding: 8rem 0;
+  background: linear-gradient(135deg, #0a0a1a 0%, #1e1e35 100%);
+  text-align: center;
+  color: #ffffff;
+  z-index: 5;
+  overflow: visible;
+}
+
+/* 修复标题模糊问题 */
+.team-section h2 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #ffffff;
+  position: relative;
+  z-index: 10;
+  text-shadow: 0 0 15px rgba(170,170,255,0.6),
+               0 0 40px rgba(130,130,255,0.4);
+  filter: none !important;
+  backdrop-filter: none !important;
+  opacity: 1 !important;
+}
+
+.team-section .subtitle {
+  color: #d0d0ff;
+  font-size: 1.05rem;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* 团队成员卡片：透明毛玻璃呼吸感 */
+.team-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(25px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 9;
+}
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 30px rgba(150,150,255,0.35);
+}
+.team-card h3 {
+  color: #fff;
+}
+.team-card p {
+  color: #d4d4ff;
 }
