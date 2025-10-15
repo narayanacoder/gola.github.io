@@ -2,70 +2,234 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GOLA - Home</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
-</head>
-<body>
-  <header>
-    <div class="container nav-container">
-      <div class="logo">GOLA</div>
-      <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="services.html">Services</a>
-        <a href="partners.html">Partners</a>
-        <a href="about.html">About Us</a>
-        <a href="case-studies.html">Case Studies</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GOLA - Secure. Build. Grow.</title>
 
-  <section class="hero">
+  <!-- Font style -->
+    <!-- ===============================================================
+       CRITICAL FIRST-PAINT CSS (prevents header flicker between pages)
+       - Header paints white from first frame (no purple flash)
+       - Blur/translucency moved to ::before for cheaper repaints
+       - Only transform/opacity are transitioned (GPU-friendly)
+     =============================================================== -->
+  <style>
+    html, body { background: #fff; }
+    header {
+      position: fixed; inset: 0 0 auto 0; height: 80px;
+      display: flex; align-items: center;
+      background: #fff; /* solid white base */
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      z-index: 1000;
+      transition: opacity .2s ease, transform .2s ease;
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      isolation: isolate;
+      overflow: hidden; /* for ::before layer */
+    }
+    header.at-top { background: rgba(255,255,255,0.65); }
+    header::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: rgba(255,255,255,0.65);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+    }
+    @supports not (backdrop-filter: blur(1px)) {
+      header::before { background: rgba(255,255,255,0.65); }
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/dist/turbo.es2017-umd.js"></script>
+  
+    <script>
+      (function() {
+        function setActive() {
+          var here = location.pathname.replace(/\/+$/, '');
+          if (here === '' || here === '/') here = '/index.html';
+          var links = document.querySelectorAll('header nav a');
+          links.forEach(function(a){
+            a.classList.remove('active');
+            var href = a.getAttribute('href') || '';
+            // for home '#hero' on index, normalize
+            if (href === '#hero') href = 'index.html#hero';
+            // compare by pathname (ignore hash)
+            var aPath = href.split('#')[0] || href;
+            // Make relative comparisons: '/index.html' vs 'index.html'
+            aPath = aPath.startsWith('/') ? aPath : '/' + aPath;
+            if (here.endsWith(aPath)) {
+              a.classList.add('active');
+            }
+          });
+        }
+        document.addEventListener('turbo:load', setActive);
+        document.addEventListener('DOMContentLoaded', setActive);
+      })();
+    </script>
+
+  </head>
+<body>
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <div class="page-glow" aria-hidden="true"></div>
+  <!-- Global header with logo and navigation -->
+<header id="site-header" data-turbo-permanent>
+  <div class="container nav-container">
+    <div class="logo"><a href="index.html">GOLA</a></div>
+    <nav>
+      <a href="index.html#hero">Home</a>
+      <a href="services.html">Services</a>
+      <a href="partners.html">Partners</a>
+      <a href="about.html">About Us</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <!-- Hero section with main tagline -->
+<section id="hero" class="hero">
+    <div class="glow"></div> <!-- Section: cleaned comment (original contained non-English text) -->
     <div class="container">
       <h1>Secure. Build. Grow.</h1>
-      <p>Your trusted partner in Cybersecurity and AI App Development.</p>
-      <a href="services.html" class="btn">Explore Our Services</a>
+      <p>Empowering businesses through trusted cybersecurity and smart development.</p>
+      <a href="#painpoints" class="btn">Explore Our Services</a> 
+  
+      
     </div>
   </section>
 
-  <section class="value-props container">
-    <h2>Why Choose GOLA?</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Expertise You Can Trust</h3>
-        <p>Industry-certified professionals dedicated to safeguarding your business and crafting high-quality apps.</p>
+  <!-- We Understand Your Concerns -->
+  <!-- Painpoints / We Understand Your Concerns -->
+<section id="painpoints" class="painpoints">
+    <h2>We Understand Your Concerns</h2>
+    <p class="subtitle">In the digital era, security is never simple. We help businesses uncover hidden risks, strengthen defenses, and grow with confidence.</p>
+    <div class="pain-grid">
+      <div class="pain-card left-slide">
+        <h3>Protect What Matters</h3>
+        <p>Safeguard your critical data with proactive assessments and real-time protection.</p>
       </div>
-      <div class="card">
-        <h3>Proactive security against emerging threats</h3>
-        <p>Quantum Safe Readiness and AI security to keep your sensitive data safe around the clock.</p>
+      <div class="pain-card up-slide">
+        <h3>Stay Ahead of Threats</h3>
+        <p>Identify vulnerabilities before attackers do — with continuous testing, monitoring, and rapid response.</p>
       </div>
-      <div class="card">
-        <h3>Custom App Development</h3>
-        <p>Tailored web and mobile applications designed for performance, security, and scalability.</p>
-      </div>
-      <div class="card">
-        <h3>Proven Track Record</h3>
-        <p>Success stories from diverse industries demonstrate our commitment and quality.</p>
+      <div class="pain-card right-slide">
+        <h3>Build and scale Securely</h3>
+        <p>Build and scale your ideas into production using innovation, security and confidence.</p>
       </div>
     </div>
   </section>
 
-  <section class="cta container">
+  <!-- why choose GOLA -->
+  <section id="why" class="why">
+  <h2>Why Choose GOLA?</h2>
+
+  <div class="reason">
+    <img src="img/why1.jpeg" alt="Expertise">
+    <div class="text">
+      <h3>Expertise You Can Trust</h3>
+      <p>Industry-certified professionals dedicated to safeguarding your business and crafting high-quality apps. We bring real-world experience across cloud, app security, and compliance so you get robust solutions—not guesswork</p>
+    </div>
+  </div>
+
+  <div class="reason reverse">
+    <img src="img/why2.jpeg" alt="Innovation">
+    <div class="text">
+      <h3>Proactive security against emerging threats</h3>
+      <p>Continuous monitoring, threat modeling, and hardening keep you ahead of new risks. Our Quantum-Safe Readiness roadmap and AI-assisted defenses reduce today’s exposure while preparing you for the post-quantum era.</p>
+    </div>
+  </div>
+
+  <div class="reason">
+    <img src="img/why3.jpeg" alt="Trust">
+    <div class="text">
+      <h3>Custom App Development</h3>
+      <p>Tailored AI powered web and mobile applications built for performance, security, and scalability. We use clean architectures, automated testing, and secure integrations to ship fast without sacrificing reliability.</p>
+    </div>
+  </div>
+
+  <div class="reason reverse">
+    <img src="img/why4.jpeg" alt="Vision">
+    <div class="text">
+      <h3>Proven Track Record</h3>
+      <p>Success stories across diverse industries show our commitment to quality and outcomes. From rapid prototypes to enterprise rollouts, we deliver on time, document clearly, and support long-term growth.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Section: cleaned comment (original contained non-English text) -->
+<section id="partners" class="partners">
+  <h2>Our Trusted Partners</h2>
+  
+  <div class="partner-row">
+    <!-- Partner 1 -->
+    <div class="partner-card fade-in">
+      <img src="img/QIZ.png" alt="Qiz Security Logo">
+      <h3>Qiz Security</h3>
+      <p>QIZ Security specializes in cryptography management and post-quantum security, helping organizations transition to quantum-safe encryption. Founded by experts in cybersecurity and cryptography, QIZ enables clear visibility and control over cryptographic assets to stay secure in the quantum era.</p>
+    </div>
+
+    <!-- Partner 2 -->
+    <div class="partner-card fade-in delay"> 
+      <img src="img/IBM.png" alt="IBM Logo">
+      <h3>IBM </h3>
+      <p>IBM is a global leader in cloud computing, AI, and cybersecurity, providing trusted enterprise solutions for over a century. With deep expertise in digital transformation and data protection, IBM empowers organizations to innovate securely and build resilient infrastructures.</p>
+    </div>
+  </div>
+</section>
+  
+    <!-- Section: cleaned comment (original contained non-English text) -->
+  <section id="usecases" class="usecases">
+    <div class="usecases-bg"></div>
+    <div class="usecases-container">
+      <h2>Use Cases</h2>
+      <div class="usecases-track">
+        <div class="usecase-card">
+          <img src="img/usercase1.jpeg" alt="Case 1">
+          <h3>AI Summary Mobile App Launch</h3>
+          <p>YouTube Video Summarizer. AI Chat to query on any topic and receive instant.</p>
+        </div>
+        <div class="usecase-card">
+          <img src="img/usercase2.jpeg" alt="Case 2">
+          <h3>World News App Launch</h3>
+          <p>Developed real-time threat intelligence visualization for enterprise clients.</p>
+        </div>
+        <div class="usecase-card">
+          <img src="img/usercase3.jpeg" alt="Case 3">
+          <h3>Security Maturity Assessment</h3>
+          <p>Helped a property tech startup with pen testing and security maturity.</p>
+        </div>
+        <div class="usecase-card">
+          <img src="img/usercase4.jpeg" alt="Case 4">
+          <h3>Zero Trust Migration</h3>
+          <p>Transitioned global infrastructure to a zero-trust architecture with MFA and SSO.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <section id="contact" class="cta">
     <h2>Ready to Secure and Grow Your Business?</h2>
     <a href="contact.html" class="btn">Get a Free Consultation</a>
   </section>
 
-  <!DOCTYPE html><html><body><script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script></body></html>
+  <script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script>
 
+
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <!-- Global footer -->
 <footer>
-    <div class="container">
-      <p>&copy; 2025 GOLA SOLUTIONS PTY LTD. All rights reserved.</p>
-      <p>ABN 97 636 153 136</p>
-    </div>
+    <p>&copy; 2025 GOLA SOLUTIONS PTY LTD. All rights reserved.</p>
+    <p>ABN 97 636 153 136</p>
   </footer>
-  
+
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <script src="script.js"></script>
 </body>
 </html>

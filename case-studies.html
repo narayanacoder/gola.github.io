@@ -2,57 +2,158 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GOLA - Case Studies</title>
+
+    <!-- ===============================================================
+       CRITICAL FIRST-PAINT CSS (prevents header flicker between pages)
+       - Header paints white from first frame (no purple flash)
+       - Blur/translucency moved to ::before for cheaper repaints
+       - Only transform/opacity are transitioned (GPU-friendly)
+     =============================================================== -->
+  <style>
+    html, body { background: #fff; }
+    header {
+      position: fixed; inset: 0 0 auto 0; height: 80px;
+      display: flex; align-items: center;
+      background: #fff; /* solid white base */
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      z-index: 1000;
+      transition: opacity .2s ease, transform .2s ease;
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      isolation: isolate;
+      overflow: hidden; /* for ::before layer */
+    }
+    header.at-top { background: rgba(255,255,255,0.65); }
+    header::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: rgba(255,255,255,0.65);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+    }
+    @supports not (backdrop-filter: blur(1px)) {
+      header::before { background: rgba(255,255,255,0.65); }
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
-</head>
+
+    <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/dist/turbo.es2017-umd.js"></script>
+  
+    <script>
+      (function() {
+        function setActive() {
+          var here = location.pathname.replace(/\/+$/, '');
+          if (here === '' || here === '/') here = '/index.html';
+          var links = document.querySelectorAll('header nav a');
+          links.forEach(function(a){
+            a.classList.remove('active');
+            var href = a.getAttribute('href') || '';
+            // for home '#hero' on index, normalize
+            if (href === '#hero') href = 'index.html#hero';
+            // compare by pathname (ignore hash)
+            var aPath = href.split('#')[0] || href;
+            // Make relative comparisons: '/index.html' vs 'index.html'
+            aPath = aPath.startsWith('/') ? aPath : '/' + aPath;
+            if (here.endsWith(aPath)) {
+              a.classList.add('active');
+            }
+          });
+        }
+        document.addEventListener('turbo:load', setActive);
+        document.addEventListener('DOMContentLoaded', setActive);
+      })();
+    </script>
+
+  </head>
+
 <body>
-  <header>
-    <div class="container nav-container">
-      <div class="logo">GOLA</div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="partners.html">Partners</a>
-        <a href="about.html">About Us</a>
-        <a href="case-studies.html" class="active">Case Studies</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <div class="page-glow" aria-hidden="true"></div>
 
-  <section class="case-studies container">
-    <h1>Case Studies</h1>
-    <p>Explore how we've helped businesses secure their systems and build innovative applications.</p>
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <!-- Global header with logo and navigation -->
+<header id="site-header" data-turbo-permanent>
+  <div class="container nav-container">
+    <div class="logo"><a href="index.html">GOLA</a></div>
+    <nav>
+      <a href="index.html#hero">Home</a>
+      <a href="services.html">Services</a>
+      <a href="partners.html">Partners</a>
+      <a href="about.html">About Us</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-    <div class="case-grid">
-      <article class="card">
-        <h3>AI Summary Mobile App Launch</h3>
-        <p>YouTube Video Summarizer to generate a concise, educational summary, from a youtube video URL. AI Chat to query on any topic and 
-          receive instant, accurate answers along with chat history </p>
-         <a href="https://apps.apple.com/us/app/ai-summary/id6581488973" class="read-more">Read More</a>
-      </article>
-      <article class="card">
-        <h3>World News App Launch</h3>
-        <p>Developed a seamless mobile app with 10k downloads.</p>
-        <a href="https://play.google.com/store/apps/details?id=roboto.newsreader&hl=en" class="read-more">Read More</a>
-      </article>
-      <article class="card">
-        <h3>Security Maturity Assessment </h3>
-        <p>Helped a property tech startup with pen testing and security maturity.</p>
-      </article>
-
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <section class="fade-in case-intro">
+    <div class="container">
+      <h1>Case Studies</h1>
+      <p>Discover how we’ve partnered with businesses to deliver security, scalability, and innovation through real-world projects.</p>
     </div>
   </section>
-<!DOCTYPE html><html><body><script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script></body></html>
 
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <section class="fade-in case-gallery">
+    <div class="container case-grid">
+      <!-- Case 1 -->
+      <div class="case-card">
+        <img src="img/usercase1.jpeg" alt="Financial Firm Security Overhaul">
+        <div class="case-info">
+          <h3>Financial Firm Security Overhaul</h3>
+          <p>We implemented 24/7 monitoring and a comprehensive incident response strategy, reducing active cyber threats by over 90%.</p>
+          <a href="#" class="btn-outline">Read More</a>
+        </div>
+      </div>
+
+      <!-- Case 2 -->
+      <div class="case-card">
+        <img src="img/usercase2.jpeg" alt="E-commerce Mobile App Launch">
+        <div class="case-info">
+          <h3>E-commerce Mobile App Launch</h3>
+          <p>Developed a secure, scalable mobile app that improved engagement by 40% while maintaining data integrity and performance.</p>
+          <a href="#" class="btn-outline">Read More</a>
+        </div>
+      </div>
+
+      <!-- Case 3 -->
+      <div class="case-card">
+        <img src="img/usercase3.jpeg" alt="Healthcare Data Compliance">
+        <div class="case-info">
+          <h3>Healthcare Data Compliance</h3>
+          <p>Enabled a healthcare provider to achieve full HIPAA compliance with robust encryption, auditing, and continuous monitoring.</p>
+          <a href="#" class="btn-outline">Read More</a>
+        </div>
+      </div>
+
+      <!-- Case 4 -->
+      <div class="case-card">
+        <img src="img/usercase4.jpeg" alt="Custom SaaS Platform Development">
+        <div class="case-info">
+          <h3>Custom SaaS Platform Development</h3>
+          <p>Built a cloud-native SaaS platform supporting thousands of concurrent users with automated scaling and strong security.</p>
+          <a href="#" class="btn-outline">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script>
+
+
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <!-- Global footer -->
 <footer>
     <div class="container">
       <p>&copy; 2025 GOLA SOLUTIONS PTY LTD. All rights reserved.</p>
       <p>ABN 97 636 153 136</p>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

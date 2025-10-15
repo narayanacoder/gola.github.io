@@ -2,45 +2,146 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GOLA - Partners</title>
+
+    <!-- ===============================================================
+       CRITICAL FIRST-PAINT CSS (prevents header flicker between pages)
+       - Header paints white from first frame (no purple flash)
+       - Blur/translucency moved to ::before for cheaper repaints
+       - Only transform/opacity are transitioned (GPU-friendly)
+     =============================================================== -->
+  <style>
+    html, body { background: #fff; }
+    header {
+      position: fixed; inset: 0 0 auto 0; height: 80px;
+      display: flex; align-items: center;
+      background: #fff; /* solid white base */
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      z-index: 1000;
+      transition: opacity .2s ease, transform .2s ease;
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      isolation: isolate;
+      overflow: hidden; /* for ::before layer */
+    }
+    header.at-top { background: rgba(255,255,255,0.65); }
+    header::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: rgba(255,255,255,0.65);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+    }
+    @supports not (backdrop-filter: blur(1px)) {
+      header::before { background: rgba(255,255,255,0.65); }
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
-</head>
+
+    <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/dist/turbo.es2017-umd.js"></script>
+  
+    <script>
+      (function() {
+        function setActive() {
+          var here = location.pathname.replace(/\/+$/, '');
+          if (here === '' || here === '/') here = '/index.html';
+          var links = document.querySelectorAll('header nav a');
+          links.forEach(function(a){
+            a.classList.remove('active');
+            var href = a.getAttribute('href') || '';
+            // for home '#hero' on index, normalize
+            if (href === '#hero') href = 'index.html#hero';
+            // compare by pathname (ignore hash)
+            var aPath = href.split('#')[0] || href;
+            // Make relative comparisons: '/index.html' vs 'index.html'
+            aPath = aPath.startsWith('/') ? aPath : '/' + aPath;
+            if (here.endsWith(aPath)) {
+              a.classList.add('active');
+            }
+          });
+        }
+        document.addEventListener('turbo:load', setActive);
+        document.addEventListener('DOMContentLoaded', setActive);
+      })();
+    </script>
+
+  </head>
+
 <body>
-  <header>
-    <div class="container nav-container">
-      <div class="logo">GOLA</div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="partners.html" class="active">Partners</a>
-        <a href="about.html">About Us</a>
-        <a href="case-studies.html">Case Studies</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <div class="page-glow" aria-hidden="true"></div>
 
-  <section class="partners container">
-    <h1>Partners</h1>
-    <p>We work with world class product vendors to deliver the best of breed technologies to our clients.</p>
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <!-- Global header with logo and navigation -->
+<header id="site-header" data-turbo-permanent>
+  <div class="container nav-container">
+    <div class="logo"><a href="index.html">GOLA</a></div>
+    <nav>
+      <a href="index.html#hero">Home</a>
+      <a href="services.html">Services</a>
+      <a href="partners.html">Partners</a>
+      <a href="about.html">About Us</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-    <div class="case-grid">
-      <article class="card">
-        <h3><a href="https://qizsecurity.com/">Qiz Security</a> </h3>
-        <p>Transform from cryptography chaos to quantum resilience.</p>
-      </article>
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <section class="fade-in partner-intro">
+    <div class="container">
+      <h1>Our Partners</h1>
+      <p>We collaborate with world-leading technology partners to deliver innovative, secure, and future-ready solutions that empower our clients to succeed.</p>
     </div>
   </section>
-<!DOCTYPE html><html><body><script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script></body></html>
 
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <section class="fade-in partner-block">
+    <div class="container partner-layout">
+      <div class="partner-image">
+        <img src="img/QIZ.png" alt="Qiz Security">
+      </div>
+      <div class="partner-info">
+        <h2>Qiz Security</h2>
+        <p>
+          Qiz Security specializes in cryptography management and post-quantum security, helping organizations transition to quantum-safe encryption.
+          Founded by experts in cybersecurity and cryptography, Qiz enables clear visibility and control over cryptographic assets to stay secure in the quantum era.
+        </p>
+        <a href="https://qizsecurity.com/" target="_blank" class="btn">Visit Qiz Website</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <section class="fade-in partner-block dark">
+    <div class="container partner-layout reverse">
+      <div class="partner-image">
+        <img src="img/IBM.png" alt="IBM">
+      </div>
+      <div class="partner-info">
+        <h2>IBM</h2>
+        <p>
+          IBM is a global leader in cloud computing, AI, and cybersecurity, providing trusted enterprise solutions for over a century.
+          With deep expertise in digital transformation and data protection, IBM empowers organizations to innovate securely and build resilient infrastructures.
+        </p>
+        <a href="https://www.ibm.com" target="_blank" class="btn">Visit IBM Website</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script>
+
+
+  <!-- Global footer -->
 <footer>
     <div class="container">
       <p>&copy; 2025 GOLA SOLUTIONS PTY LTD. All rights reserved.</p>
       <p>ABN 97 636 153 136</p>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

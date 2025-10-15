@@ -1,50 +1,207 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GOLA - Contact Us</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>GOLA - Contact Us</title>
+<!-- ===============================================================
+       CRITICAL FIRST-PAINT CSS (prevents header flicker between pages)
+       - Header paints white from first frame (no purple flash)
+       - Blur/translucency moved to ::before for cheaper repaints
+       - Only transform/opacity are transitioned (GPU-friendly)
+     =============================================================== -->
+<style>
+    html, body { background: #fff; }
+    header {
+      position: fixed; inset: 0 0 auto 0; height: 80px;
+      display: flex; align-items: center;
+      background: #fff; /* solid white base */
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      z-index: 1000;
+      transition: opacity .2s ease, transform .2s ease;
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      isolation: isolate;
+      overflow: hidden; /* for ::before layer */
+    }
+    header.at-top { background: rgba(255,255,255,0.65); }
+    header::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: rgba(255,255,255,0.65);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+    }
+    @supports not (backdrop-filter: blur(1px)) {
+      header::before { background: rgba(255,255,255,0.65); }
+    }
+  </style>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&amp;family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/dist/turbo.es2017-umd.js"></script>
+<script>
+      (function() {
+        function setActive() {
+          var here = location.pathname.replace(/\/+$/, '');
+          if (here === '' || here === '/') here = '/index.html';
+          var links = document.querySelectorAll('header nav a');
+          links.forEach(function(a){
+            a.classList.remove('active');
+            var href = a.getAttribute('href') || '';
+            // for home '#hero' on index, normalize
+            if (href === '#hero') href = 'index.html#hero';
+            // compare by pathname (ignore hash)
+            var aPath = href.split('#')[0] || href;
+            // Make relative comparisons: '/index.html' vs 'index.html'
+            aPath = aPath.startsWith('/') ? aPath : '/' + aPath;
+            if (here.endsWith(aPath)) {
+              a.classList.add('active');
+            }
+          });
+        }
+        document.addEventListener('turbo:load', setActive);
+        document.addEventListener('DOMContentLoaded', setActive);
+      })();
+    </script>
 </head>
 <body>
-  <header>
-    <div class="container nav-container">
-      <div class="logo">GOLA</div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="partners.html">Partners</a>
-        <a href="about.html">About Us</a>
-        <a href="case-studies.html">Case Studies</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html" class="active">Contact</a>
-      </nav>
-    </div>
-  </header>
+<div aria-hidden="true" class="page-glow"></div>
+<!-- Section: cleaned comment (original contained non-English text) -->
+<!-- Global header with logo and navigation -->
+<header data-turbo-permanent="" id="site-header">
+<div class="container nav-container">
+<div class="logo"><a href="index.html">GOLA</a></div>
+<nav>
+<a href="index.html#hero">Home</a>
+<a href="services.html">Services</a>
+<a href="partners.html">Partners</a>
+<a href="about.html">About Us</a>
+<a href="case-studies.html">Case Studies</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html">Contact</a>
+</nav>
+</div>
+</header>
+<!-- Section: cleaned comment (original contained non-English text) -->
+<section class="fade-in contact-intro">
+<div class="container">
+<h1>Get in Touch</h1>
+<p>Whether you're looking to enhance security, start a new project, or simply say hello — we’d love to hear from you.</p>
+</div>
+</section>
+<!-- Section: cleaned comment (original contained non-English text) -->
+<section class="fade-in contact-layout">
+<div class="container contact-grid">
+<!-- Section: cleaned comment (original contained non-English text) -->
+<div class="contact-form">
+<h2>Send Us a Message</h2>
+<form action="https://formspree.io/f/xqaywpdp" id="contactForm" method="POST" novalidate="">
+<input id="name" name="name" placeholder="Your Name" required="" type="text"/>
+<input autocomplete="email" id="email" inputmode="email" name="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Your Email" required="" type="email"/>
+<input id="company" name="company" placeholder="Company (optional)" type="text"/>
+<textarea id="message" name="message" placeholder="Your Message" required=""></textarea>
+<button class="btn" type="submit">Send Message</button>
+<p id="formResponse"></p>
+</form>
+</div>
+<!-- Section: cleaned comment (original contained non-English text) -->
+</div>
+</section>
+<!-- Section: cleaned comment (original contained non-English text) -->
+<script crossorigin="anonymous" environmentid="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" id="chatbot" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" type="text/javascript"></script>
+<!-- Global footer -->
+<footer>
+<div class="container">
+<p>© 2025 GOLA SOLUTIONS PTY LTD. All rights reserved.</p>
+<p>ABN 97 636 153 136</p>
+</div>
+</footer>
+<script src="script.js"></script>
 
-  <section class="contact container">
-    <h1>Get a Quote or Contact Us</h1>
-    <p>Fill out the form below and we will get back to you promptly.</p>
+<script>
+(function() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
 
-    <form id="contactForm" novalidate>
-      <input type="text" id="name" name="name" placeholder="Your Name" required />
-      <input type="email" id="email" name="email" placeholder="Your Email" required />
-      <input type="text" id="company" name="company" placeholder="Company (optional)" />
-      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
-      <p id="formResponse"></p>
-    </form>
-  </section>
-<!DOCTYPE html><html><body><script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script></body></html>
+  const targetEmail = "rajeshwar@Golacyber.ai";
+  const responseBox = document.getElementById('formResponse');
+  const submitBtn = form.querySelector('button[type="submit"]');
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 GOLA SOLUTIONS PTY LTD. All rights reserved.</p>
-      <p>ABN 97 636 153 136</p>
-    </div>
-  </footer>
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  <script src="script.js"></script>
-</body>
+  function show(msg, ok) {
+    if (!responseBox) return;
+    responseBox.textContent = msg;
+    responseBox.style.color = ok ? '#137a1f' : '#b00020';
+  }
+
+  function getTrimmed(id) {
+    const el = form.querySelector('#' + id);
+    return el ? el.value.trim() : '';
+  }
+
+  function buildFormData() {
+    const fd = new FormData();
+    const name = getTrimmed('name');
+    const email = getTrimmed('email');
+    const company = getTrimmed('company');
+    const message = getTrimmed('message');
+
+    if (name) fd.append('name', name);
+    if (email) fd.append('email', email);
+    if (company) fd.append('company', company);
+    if (message) fd.append('message', message);
+
+    fd.append('_subject', 'New website contact from GOLA');
+    fd.append('_email_to', targetEmail);
+
+    return { fd, name, email, company, message };
+  }
+
+  async function send(event) {
+    event.preventDefault();
+
+    const { fd, name, email, company, message } = buildFormData();
+
+    if (!name) { show('Please enter your name.', false); return; }
+    if (!emailRe.test(email)) { show('Please enter a valid email address.', false); return; }
+    if (!message) { show('Please enter a message.', false); return; }
+
+    const endpoint = form.getAttribute('action');
+
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
+
+    try {
+      const res = await fetch(endpoint, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        show('Thanks! Your message has been sent.', true);
+        form.reset();
+      } else {
+        window.location.href = 'mailto:' + targetEmail
+          + '?subject=' + encodeURIComponent('Website contact from GOLA')
+          + '&body=' + encodeURIComponent(
+              'Name: ' + name + '\n'
+            + 'Email: ' + email + '\n'
+            + 'Company: ' + company + '\n\n'
+            + 'Message:\n' + message
+          );
+      }
+    } catch (err) {
+      window.location.href = 'mailto:' + targetEmail
+        + '?subject=' + encodeURIComponent('Website contact from GOLA')
+        + '&body=' + encodeURIComponent(
+            'Name: ' + name + '\n'
+          + 'Email: ' + email + '\n'
+          + 'Company: ' + company + '\n\n'
+          + 'Message:\n' + message
+        );
+    } finally {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send Message'; }
+    }
+  }
+
+  form.addEventListener('submit', send);
+})();
+</script></body>
 </html>
