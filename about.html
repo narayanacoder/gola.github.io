@@ -5,30 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GOLA - About Us</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+    <!-- ===============================================================
+       CRITICAL FIRST-PAINT CSS (prevents header flicker between pages)
+       - Header paints white from first frame (no purple flash)
+       - Blur/translucency moved to ::before for cheaper repaints
+       - Only transform/opacity are transitioned (GPU-friendly)
+     =============================================================== -->
+  <style>
+    html, body { background: #fff; }
+    header {
+      position: fixed; inset: 0 0 auto 0; height: 80px;
+      display: flex; align-items: center;
+      background: #fff; /* solid white base */
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      z-index: 1000;
+      transition: opacity .2s ease, transform .2s ease;
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      isolation: isolate;
+      overflow: hidden; /* for ::before layer */
+    }
+    header.at-top { background: rgba(255,255,255,0.65); }
+    header::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: rgba(255,255,255,0.65);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+    }
+    @supports not (backdrop-filter: blur(1px)) {
+      header::before { background: rgba(255,255,255,0.65); }
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-</head>
+
+    <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/dist/turbo.es2017-umd.js"></script>
+  
+    <script>
+      (function() {
+        function setActive() {
+          var here = location.pathname.replace(/\/+$/, '');
+          if (here === '' || here === '/') here = '/index.html';
+          var links = document.querySelectorAll('header nav a');
+          links.forEach(function(a){
+            a.classList.remove('active');
+            var href = a.getAttribute('href') || '';
+            // for home '#hero' on index, normalize
+            if (href === '#hero') href = 'index.html#hero';
+            // compare by pathname (ignore hash)
+            var aPath = href.split('#')[0] || href;
+            // Make relative comparisons: '/index.html' vs 'index.html'
+            aPath = aPath.startsWith('/') ? aPath : '/' + aPath;
+            if (here.endsWith(aPath)) {
+              a.classList.add('active');
+            }
+          });
+        }
+        document.addEventListener('turbo:load', setActive);
+        document.addEventListener('DOMContentLoaded', setActive);
+      })();
+    </script>
+
+  </head>
 
 <body>
   <div class="page-glow" aria-hidden="true"></div>
 
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <!-- Global header with logo and navigation -->
+<header id="site-header" data-turbo-permanent>
+  <div class="container nav-container">
+    <div class="logo"><a href="index.html">GOLA</a></div>
+    <nav>
+      <a href="index.html#hero">Home</a>
+      <a href="services.html">Services</a>
+      <a href="partners.html">Partners</a>
+      <a href="about.html">About Us</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <header>
-    <div class="container nav-container">
-    <div class="logo"><a href="index.html"> GOLA</a></div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="partners.html">Partners</a>
-        <a href="about.html" class="active">About Us</a>
-        <a href="case-studies.html">Case Studies</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-
+  <!-- Section: cleaned comment (original contained non-English text) -->
   <section class="fade-in about-intro">
     <div class="container">
       <h1>About GOLA</h1>
@@ -38,7 +99,7 @@
     </div>
   </section>
 
-
+  <!-- Section: cleaned comment (original contained non-English text) -->
   <section class="fade-in mission-section">
     <div class="container mission-layout">
       <div class="mission-info">
@@ -53,20 +114,20 @@
     </div>
   </section>
 
-  <!-- 团队 -->
+  <!-- Section: cleaned comment (original contained non-English text) -->
   <section class="fade-in team-section">
   <div class="container">
     <h2>Meet Our Team</h2>
     <p class="subtitle">Our people combine deep expertise in cybersecurity, AI, and software engineering to protect and empower businesses worldwide.</p>
 
     <div class="team-layout">
-      <!-- 第一行：两位核心成员 -->
+      <!-- Section: cleaned comment (original contained non-English text) -->
       <div class="team-row two">
         <div class="team-card">
-        <!--  <img src="img/team-narayana.jpg" alt="Narayana Madineni">   -->
+        <!-- <img src="img/team-narayana.jpg" alt="Narayana Madineni"> -->
           <h3>Narayana Madineni</h3>
           <p class="role">Cyber Security Director</p>
-          <p class="bio"> Narayana leads enterprise cybersecurity strategy and AI strategy across industries.</p>
+          <p class="bio">With over 15 years of experience, Narayana leads enterprise cybersecurity strategy and governance across industries.</p>
         </div>
 
         <div class="team-card">
@@ -77,7 +138,7 @@
         </div>
       </div>
 
-      <!-- 第二行：三位成员 -->
+      <!-- Section: cleaned comment (original contained non-English text) -->
       <div class="team-row three">
         <div class="team-card">
           <!-- <img src="img/team-naresh.jpg" alt="Naresh Idiga"> -->
@@ -87,14 +148,14 @@
         </div>
 
         <div class="team-card">
-         <!--  <img src="img/team-stephen.jpg" alt="Stephen Chey"> -->
+         <!-- <img src="img/team-stephen.jpg" alt="Stephen Chey"> -->
           <h3>Stephen Chey</h3>
           <p class="role">Principal Consultant</p>
           <p class="bio">Stephen provides strategic cybersecurity consulting and incident response leadership to global clients.</p>
         </div>
 
         <div class="team-card">
-          <!--  <img src="img/team-lan.jpg" alt="Lan Cheng"> -->
+          <!-- <img src="img/team-lan.jpg" alt="Lan Cheng"> -->
           <h3>Lan Cheng</h3>
           <p class="role">Cyber Security Consultant</p>
           <p class="bio">Lan focuses on phishing simulation, awareness training, and behavioral cybersecurity programs.</p>
@@ -105,7 +166,7 @@
 </section>
 
 
-  <!-- 企业价值观 -->
+  <!-- Section: cleaned comment (original contained non-English text) -->
   <section class="fade-in values-section">
     <div class="container">
       <h2>Our Values</h2>
@@ -119,11 +180,12 @@
     </div>
   </section>
 
-  <!DOCTYPE html><html><body><script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script></body></html>
+  <script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script>
 
 
   <!--  -->
-  <footer>
+  <!-- Global footer -->
+<footer>
     <div class="container">
       <p>&copy; 2025 GOLA SOLUTIONS PTY LTD. All rights reserved.</p>
       <p>ABN 97 636 153 136</p>
