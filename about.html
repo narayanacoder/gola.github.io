@@ -2,81 +2,198 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GOLA - About Us</title>
+
+    <!-- ===============================================================
+       CRITICAL FIRST-PAINT CSS (prevents header flicker between pages)
+       - Header paints white from first frame (no purple flash)
+       - Blur/translucency moved to ::before for cheaper repaints
+       - Only transform/opacity are transitioned (GPU-friendly)
+     =============================================================== -->
+  <style>
+    html, body { background: #fff; }
+    header {
+      position: fixed; inset: 0 0 auto 0; height: 80px;
+      display: flex; align-items: center;
+      background: #fff; /* solid white base */
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      z-index: 1000;
+      transition: opacity .2s ease, transform .2s ease;
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      isolation: isolate;
+      overflow: hidden; /* for ::before layer */
+    }
+    header.at-top { background: rgba(255,255,255,0.65); }
+    header::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: rgba(255,255,255,0.65);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+    }
+    @supports not (backdrop-filter: blur(1px)) {
+      header::before { background: rgba(255,255,255,0.65); }
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
-</head>
+
+    <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/dist/turbo.es2017-umd.js"></script>
+  
+    <script>
+      (function() {
+        function setActive() {
+          var here = location.pathname.replace(/\/+$/, '');
+          if (here === '' || here === '/') here = '/index.html';
+          var links = document.querySelectorAll('header nav a');
+          links.forEach(function(a){
+            a.classList.remove('active');
+            var href = a.getAttribute('href') || '';
+            // for home '#hero' on index, normalize
+            if (href === '#hero') href = 'index.html#hero';
+            // compare by pathname (ignore hash)
+            var aPath = href.split('#')[0] || href;
+            // Make relative comparisons: '/index.html' vs 'index.html'
+            aPath = aPath.startsWith('/') ? aPath : '/' + aPath;
+            if (here.endsWith(aPath)) {
+              a.classList.add('active');
+            }
+          });
+        }
+        document.addEventListener('turbo:load', setActive);
+        document.addEventListener('DOMContentLoaded', setActive);
+      })();
+    </script>
+
+  </head>
+
 <body>
-  <header>
-    <div class="container nav-container">
-      <div class="logo">GOLA</div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="partners.html">Partners</a>
-        <a href="about.html" class="active">About Us</a>
-        <a href="case-studies.html">Case Studies</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+  <div class="page-glow" aria-hidden="true"></div>
+
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <!-- Global header with logo and navigation -->
+<header id="site-header" data-turbo-permanent>
+  <div class="container nav-container">
+    <div class="logo"><a href="index.html">GOLA</a></div>
+    <nav>
+      <a href="index.html#hero">Home</a>
+      <a href="services.html">Services</a>
+      <a href="partners.html">Partners</a>
+      <a href="about.html">About Us</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <section class="fade-in about-intro">
+    <div class="container">
+      <h1>About GOLA</h1>
+      <p>
+        Founded on the principles of trust, innovation, and excellence, <strong>GOLA</strong> is dedicated to protecting digital assets and developing secure, high-performing software solutions.
+      </p>
     </div>
-  </header>
-
-  <section class="about container">
-    <h1>About GOLA</h1>
-    <p>Founded on the principles of trust, innovation, and excellence, GOLA is committed to protecting your digital assets and delivering superior software solutions.</p>
-    
-    <h2> </h2>
-    
-    <h1>Our Mission</h1>
-    <p>To empower startups, small and medium businesses with secure technology and AI powered applications that drive growth and resilience.</p>
-
-    <h2> </h2>
-    
-    <h1>Meet Our Team</h1>
-    <div class="team-grid">
-      <div class="team-member card">
-        <h3>Narayana Madineni</h3>
-        <p>Cyber Security Director</p>
-      </div>
-      <div class="team-member card">
-        <h3>Rajeshwar Godugu</h3>
-        <p>Engineering Director</p>
-      </div>
-      <div class="team-member card">
-        <h3>Naresh Idiga </h3>
-        <p>AI Architect</p>
-      </div>
-      <div class="team-member card">
-        <h3>Stephen Chey </h3>
-        <p>Cyber Security Principal Consultant</p>
-      </div>
-      <div class="team-member card">
-        <h3>Lan Cheng </h3>
-        <p>Cyber Security Consultant</p>
-      </div>
-    </div>
-    <p> </p>
-
-    <h2> </h2>
-    
-    <h1>Our Values</h1>
-    <ul>
-      <li>Integrity</li>
-      <li>Customer Centricity</li>
-      <li>Innovation</li>
-      <li>Collaboration</li>
-      <li>Excellence</li>
-    </ul>
   </section>
-<!DOCTYPE html><html><body><script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script></body></html>
 
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <section class="fade-in mission-section">
+    <div class="container mission-layout">
+      <div class="mission-info">
+        <h2>Our Mission</h2>
+        <p>
+          To empower businesses with secure technology and custom-built applications that drive growth, resilience, and digital confidence.
+        </p>
+      </div>
+      <div class="mission-graphic">
+        <!-- <img src="img/mission.png" alt="Mission Illustration"> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <section class="fade-in team-section">
+  <div class="container">
+    <h2>Meet Our Team</h2>
+    <p class="subtitle">Our people combine deep expertise in cybersecurity, AI, digital transformation, and software engineering to protect and empower businesses worldwide.</p>
+
+    <div class="team-layout">
+      <!-- Section: cleaned comment (original contained non-English text) -->
+      <div class="team-row two">
+        <div class="team-card">
+        <!-- <img src="img/team-narayana.jpg" alt="Narayana Madineni"> -->
+          <h3>Narayana Madineni</h3>
+          <p class="role">Cyber Security Director</p>
+          <p class="bio">Narayana leads enterprise cybersecurity strategy and governance across industries.</p>
+        </div>
+
+        <div class="team-card">
+          <!-- <img src="img/team-rajeshwar.jpg" alt="Rajeshwar Godugu"> -->
+          <h3>Rajeshwar Godugu</h3>
+          <p class="role">Engineering Director</p>
+          <p class="bio">Rajeshwar drives innovation and oversees high-performance engineering teams that deliver scalable solutions.</p>
+        </div>
+      </div>
+
+      <!-- Section: cleaned comment (original contained non-English text) -->
+      <div class="team-row three">
+
+
+        <div class="team-card">
+         <!-- <img src="img/team-stephen.jpg" alt="Stephen Chey"> -->
+          <h3>Stephen Chey</h3>
+          <p class="role">Principal Consultant</p>
+          <p class="bio">Stephen provides strategic cybersecurity consulting and advisory services.</p>
+        </div>
+
+        <div class="team-card">
+          <!-- <img src="img/team-naresh.jpg" alt="Naresh Idiga"> -->
+          <h3>Naresh Idiga</h3>
+          <p class="role">AI Architect</p>
+          <p class="bio">Naresh designs and implements AI-driven architectures to create scalable applications and automation.</p>
+        </div>
+
+        <div class="team-card">
+          <!-- <img src="img/team-lan.jpg" alt="Lan Cheng"> -->
+          <h3>Lan Cheng</h3>
+          <p class="role">Cyber Security Consultant</p>
+          <p class="bio">Lan focuses on phishing simulation, awareness training, and behavioral cybersecurity programs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <section class="fade-in values-section">
+    <div class="container">
+      <h2>Our Values</h2>
+      <ul class="values-list">
+        <li><strong>Integrity:</strong> We act with honesty and uphold ethical standards in every engagement.</li>
+        <li><strong>Customer Centricity:</strong> Our clients are at the heart of everything we do.</li>
+        <li><strong>Innovation:</strong> We embrace change and continuously evolve through creative thinking.</li>
+        <li><strong>Collaboration:</strong> We believe teamwork and transparency drive success.</li>
+        <li><strong>Excellence:</strong> We strive for quality and impact in every solution we deliver.</li>
+      </ul>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script>
+
+
+  <!--  -->
+  <!-- Global footer -->
 <footer>
     <div class="container">
       <p>&copy; 2025 GOLA SOLUTIONS PTY LTD. All rights reserved.</p>
       <p>ABN 97 636 153 136</p>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

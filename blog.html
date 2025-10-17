@@ -4,51 +4,163 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GOLA - Blog & Insights</title>
+
+     <!-- ===============================================================
+       CRITICAL FIRST-PAINT CSS (prevents header flicker between pages)
+       - Header paints white from first frame (no purple flash)
+       - Blur/translucency moved to ::before for cheaper repaints
+       - Only transform/opacity are transitioned (GPU-friendly)
+     =============================================================== -->
+  <style>
+    html, body { background: #fff; }
+    header {
+      position: fixed; inset: 0 0 auto 0; height: 80px;
+      display: flex; align-items: center;
+      background: #fff; /* solid white base */
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      z-index: 1000;
+      transition: opacity .2s ease, transform .2s ease;
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      isolation: isolate;
+      overflow: hidden; /* for ::before layer */
+    }
+    header.at-top { background: rgba(255,255,255,0.65); }
+    header::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: rgba(255,255,255,0.65);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+    }
+    @supports not (backdrop-filter: blur(1px)) {
+      header::before { background: rgba(255,255,255,0.65); }
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
-</head>
+
+    <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/dist/turbo.es2017-umd.js"></script>
+  
+    <script>
+      (function() {
+        function setActive() {
+          var here = location.pathname.replace(/\/+$/, '');
+          if (here === '' || here === '/') here = '/index.html';
+          var links = document.querySelectorAll('header nav a');
+          links.forEach(function(a){
+            a.classList.remove('active');
+            var href = a.getAttribute('href') || '';
+            // for home '#hero' on index, normalize
+            if (href === '#hero') href = 'index.html#hero';
+            // compare by pathname (ignore hash)
+            var aPath = href.split('#')[0] || href;
+            // Make relative comparisons: '/index.html' vs 'index.html'
+            aPath = aPath.startsWith('/') ? aPath : '/' + aPath;
+            if (here.endsWith(aPath)) {
+              a.classList.add('active');
+            }
+          });
+        }
+        document.addEventListener('turbo:load', setActive);
+        document.addEventListener('DOMContentLoaded', setActive);
+      })();
+    </script>
+
+  </head>
 <body>
-  <header>
-    <div class="container nav-container">
-      <div class="logo">GOLA</div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="partners.html">Partners</a>
-        <a href="about.html">About Us</a>
-        <a href="case-studies.html">Case Studies</a>
-        <a href="blog.html" class="active">Blog</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <div class="page-glow" aria-hidden="true"></div>
 
-  <section class="blog container">
-    <h1>Latest Insights</h1>
-    <p>Stay up-to-date with cybersecurity trends and app development best practices.</p>
+  <!-- Global header with logo and navigation -->
+<header id="site-header" data-turbo-permanent>
+  <div class="container nav-container">
+    <div class="logo"><a href="index.html">GOLA</a></div>
+    <nav>
+      <a href="index.html#hero">Home</a>
+      <a href="services.html">Services</a>
+      <a href="partners.html">Partners</a>
+      <a href="about.html">About Us</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-    <div class="blog-grid">
-      <article class="card">
-        <h3>A practical guide to building agents </h3>
-        <p> OpenAI released a guide designed for product and engineering teams exploring how to build their first agents,
-distilling insights from numerous customer deployments into practical and actionable best
-practices.</p>
-        <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf" class="read-more">Read More</a>
-      </article>
-      <article class="card">
-        <h3>Best practices for Securely Deploying AI on Google Cloud.</h3>
-        <p>Office of the CISO at Google cloud released a paper on shared responsibilities model in securing AI workloads on Google cloud</p>
-        <a href="https://web.archive.org/web/20240420003339/https://services.google.com/fh/files/misc/best-practices-for-securely-deploying-ai-on-google-cloud.pdf" class="read-more">Read More</a>
-      </article>
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <section class="fade-in blog-intro">
+    <div class="container">
+      <h1>Insights & Resources</h1>
+      <p>Explore the latest trends, technical insights, and expert guidance on cybersecurity and digital innovation.</p>
     </div>
   </section>
-<!DOCTYPE html><html><body><script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script></body></html>
 
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <section class="fade-in blog-featured">
+    <div class="container feature-layout">
+      <div class="feature-image">
+       <!-- <img src="img/AI1.jpeg" alt="AI Security"> -->
+      </div>
+      <div class="feature-info">
+        <span class="tag">Featured</span>
+        <h2>A Practical Guide to Building AI Agents</h2>
+        <p>
+          OpenAI released a new practical guide for product and engineering teams exploring agent development — distilling
+          real-world lessons into actionable best practices for secure deployment.
+        </p>
+        <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf" target="_blank" class="btn">Read Article</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: cleaned comment (original contained non-English text) -->
+  <section class="fade-in blog-grid-section">
+    <div class="container">
+      <div class="blog-grid">
+        <article class="blog-card">
+         <!-- <img src="img/blog1.jpeg" alt="Building Scalable Mobile Apps"> -->
+          <div class="blog-content">
+            <span class="tag">Development</span>
+            <h3>How to build AI agents with MCP in 2025</h3>
+            <p>Clickhouse shared the comparision between 12 MCP frameworks.</p>
+            <a href="https://clickhouse.com/blog/how-to-build-ai-agents-mcp-12-frameworks" class="read-more">Read More →</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+         <!-- <img src="img/blog2.jpeg" alt="Why Compliance Matters"> -->
+          <div class="blog-content">
+            <span class="tag">Cybersecurity</span>
+            <h3>Best practices for Securely Deploying AI on Google Cloud.</h3>
+            <p>Office of the CISO at Google cloud released a paper on shared responsibilities model in securing AI workloads on Google cloud.</p>
+            <a href="https://web.archive.org/web/20240420003339/https://services.google.com/fh/files/misc/best-practices-for-securely-deploying-ai-on-google-cloud.pdf" class="read-more">Read More →</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+         <!-- <img src="img/blog3.jpeg" alt="Securing the Cloud"> -->
+          <div class="blog-content">
+            <span class="tag">SMB Security</span>
+            <h3>Cyber health check tool</h3>
+            <p>Australian Signals Directorate has published a simple but powerful Cyber health check tool for individuals, small businesses and non-for-profit organisations.</p>
+            <a href="https://www.cyber.gov.au/cyberhealthcheck" class="read-more">Read More →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="https://res.public.onecdn.static.microsoft/customerconnect/v1/7dttl/init.js" id="chatbot" environmentId="1ea709ed-6e2c-e376-b5b3-d6e8823edac4" crossorigin="anonymous"></script>
+
+
+  <!-- Global footer -->
 <footer>
     <div class="container">
       <p>&copy; 2025 GOLA SOLUTIONS PTY LTD. All rights reserved.</p>
       <p>ABN 97 636 153 136</p>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
