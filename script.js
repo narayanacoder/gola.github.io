@@ -177,28 +177,30 @@
   window.addEventListener('resize', placeClone);
 })();
 
-// 🎬 
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // ✅ 
-      }
-    });
-  },
-  { threshold: 0.25 }
-);
+// 🎬 Fade-in and partners visibility observer (scoped to avoid global redeclare)
+(function () {
+  const fadeObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
 
-document.addEventListener("DOMContentLoaded", () => {
-  const track = document.querySelector(".usecases-track");
-  if (track && !track.nextElementSibling) {
-    const clone = track.cloneNode(true);
-    clone.style.left = "100%";
-    track.parentElement.appendChild(clone);
-  }
-});
+  document.addEventListener("DOMContentLoaded", () => {
+    const track = document.querySelector(".usecases-track");
+    if (track && !track.nextElementSibling) {
+      const clone = track.cloneNode(true);
+      clone.style.left = "100%";
+      track.parentElement.appendChild(clone);
+    }
 
-document.querySelectorAll('.fade-in, .partner-card, .partners-section h2').forEach(el => {
-  observer.observe(el);
-});
+    document
+      .querySelectorAll(".fade-in, .partner-card, .partners-section h2")
+      .forEach(el => fadeObserver.observe(el));
+  });
+})();
