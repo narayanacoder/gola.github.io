@@ -55,7 +55,7 @@
             a.classList.remove('active');
             var href = a.getAttribute('href') || '';
             // for home '#hero' on index, normalize
-            if (href === '#hero') href = 'index.html#hero';
+            //if (href === '#hero') href = 'index.html#hero';
             // compare by pathname (ignore hash)
             var aPath = href.split('#')[0] || href;
             // Make relative comparisons: '/index.html' vs 'index.html'
