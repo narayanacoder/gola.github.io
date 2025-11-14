@@ -1996,3 +1996,351 @@ header {
   will-change: transform;
   isolation: isolate;
 }
+
+/* ======================================
+   GLOBAL PQC PAGE STYLE
+====================================== */
+
+.pqc-title {
+  font-size: clamp(2.6rem, 5vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #5b9df9, #9b5df7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.pqc-lead {
+  font-size: 1.15rem;
+  max-width: 760px;
+  color: var(--text-light);
+  line-height: 1.75;
+}
+
+.pqc-h2 {
+  font-size: clamp(1.8rem, 4vw, 2.3rem);
+  font-weight: 900;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #5b9df9, #9b5df7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cards fade-in */
+.pqc-card {
+  background: #fff;
+  padding: 1.6rem 1.8rem;
+  border-radius: 18px;
+  box-shadow: 0 15px 28px rgba(120,120,255,0.12);
+  border: 1px solid rgba(230,230,255,0.6);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease-out, transform .7s ease-out;
+}
+
+.pqc-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pqc-card h3 {
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.pqc-grid.three {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1.6rem;
+}
+
+/* ======================================
+   HERO AREA
+====================================== */
+
+.pqc-hero {
+  position: relative;
+  padding: 5rem 0 4rem;
+  margin-top: 2rem;
+}
+
+.pqc-hero > .container {
+  position: relative;
+  z-index: 5;
+}
+
+.pqc-hero-bg {
+  position: absolute;
+  left: 70%;
+  top: -10%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 1000px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 214, 150, 0.22) 10%,
+    rgba(255, 210, 140, 0.16) 25%,
+    rgba(255, 200, 130, 0.10) 45%,
+    rgba(255, 190, 120, 0.06) 60%,
+    rgba(255, 180, 110, 0.03) 75%,
+    rgba(255, 180, 110, 0.00) 100%
+  );
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ======================================
+   WHY IT MATTERS
+====================================== */
+
+.pqc-why .pqc-why-title {
+  text-align: center;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 900;
+  margin-bottom: 2rem;
+  letter-spacing: -0.5px;
+}
+
+.pqc-why-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.pqc-why-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 2.2rem 1.8rem;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.06);
+}
+
+.pqc-why-card .pqc-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #e9ecff;
+  margin-bottom: 1rem;
+}
+
+/* ======================================
+   WHAT YOU'LL GET SECTION
+====================================== */
+
+.pqc-section {
+  width: 100%;
+  margin: 6rem 0;
+  padding: 0;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.pqc-what-wrapper {
+  width: 100%;
+  max-width: 1650px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 5rem;
+  padding: 5rem 4rem;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #f3f1ff 0%, #eef2ff 50%, #f3f1ff 100%);
+  box-shadow: 0 25px 55px rgba(150, 150, 200, 0.25);
+}
+
+.pqc-what-left {
+  flex: 0 0 32%;
+}
+
+.pqc-h2.inverse {
+  font-size: clamp(2.1rem, 3.2vw, 2.8rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #6f7cff, #b391ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pqc-what-desc {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: rgba(30, 30, 30, 0.65);
+}
+
+.pqc-what-right {
+  flex: 0 0 62%;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem 3rem;
+  padding: 1rem 0;
+}
+
+.pqc-what-right::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  border-left: 2px dashed rgba(100, 120, 255, 0.45);
+}
+
+.pqc-what-right::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  border-top: 2px dashed rgba(100, 120, 255, 0.45);
+}
+
+.pqc-what-item h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1c1c1c;
+  margin-bottom: 0.5rem;
+}
+
+.pqc-what-item p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .pqc-what-wrapper {
+    flex-direction: column;
+    padding: 3rem 2rem;
+    gap: 3rem;
+  }
+  .pqc-what-right {
+    grid-template-columns: 1fr;
+  }
+  .pqc-what-right::before,
+  .pqc-what-right::after {
+    display: none;
+  }
+}
+
+/* ======== PQC Timeline (Stable Zig-Zag) ======== */
+
+.pqc-roadmap {
+  width: 100%;
+  padding: 6rem 0;
+  background: #fff;
+}
+
+.pqc-zig-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin: 4rem 0;
+  position: relative;
+}
+
+.pqc-center-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* 中间线条 */
+.pqc-center-node::before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  background: #c8cdfa;
+  top: -3rem;
+  bottom: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* 中间圆点 */
+.pqc-dot {
+  width: 12px;
+  height: 12px;
+  background: #6575ff;
+  border-radius: 50%;
+  z-index: 2;
+  margin-bottom: .5rem;
+}
+
+/* milestone 标签 */
+.pqc-milestone {
+  background: #eef0ff;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  z-index: 2;
+}
+
+/* 卡片容器（左 & 右） */
+.pqc-left {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 2rem;
+}
+
+.pqc-right {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 2rem;
+}
+
+/* 卡片样式 */
+.pqc-card {
+  width: 280px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  padding: 1.4rem;
+  z-index: 2;
+}
+
+/* 横线（左） */
+.pqc-line-left {
+  width: 40px;
+  height: 2px;
+  background: #b5bafc;
+  position: absolute;
+  left: calc(50% - 40px);
+  z-index: 1;
+}
+
+/* 横线（右） */
+.pqc-line-right {
+  width: 40px;
+  height: 2px;
+  background: #b5bafc;
+  position: absolute;
+  right: calc(50% - 40px);
+  z-index: 1;
+}
+
+/* 📱 手机版：全部改为纵向 */
+@media (max-width: 768px) {
+  .pqc-zig-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+    margin: 3rem 0;
+  }
+
+  .pqc-left, .pqc-right {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .pqc-line-left,
+  .pqc-line-right {
+    display: none;
+  }
+}
