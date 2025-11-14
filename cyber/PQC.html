@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PQC Readiness Workshop | GOLA Cyber</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Users/lancheng/Desktop/gola.github.io-main/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/dist/turbo.es2017-umd.js"></script>
+
+  <style>
+    html,body{background:#fff;}
+    header{
+      position: fixed;
+      inset:0 0 auto 0;
+      height:80px;
+      display:flex;align-items:center;
+      background:#fff;
+      border-bottom:1px solid rgba(0,0,0,0.05);
+      z-index:1000;
+      transition:.2s ease;
+    }
+    header::before{
+      content:"";position:absolute;inset:0;
+      background:rgba(255,255,255,0.65);
+      backdrop-filter:blur(14px);
+    }
+  </style>
+
+</head>
+
+<body id="pqc-page">
+
+<header id="site-header" data-turbo-permanent>
+  <div class="container nav-container">
+    <div class="logo"><a href="../../index.html">GOLA</a></div>
+    <nav>
+      <a href="../../index.html">Home</a>
+      <a href="../../services.html">Services</a>
+      <a href="../../partners.html">Partners</a>
+      <a href="../../about.html">About Us</a>
+      <a href="../../case-studies.html">Case Studies</a>
+      <a href="../../blog.html">Blog</a>
+      <a href="../../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+
+<!-- ⭐⭐⭐ MAIN 内容（有 container） -->
+<main class="container" style="padding-top: 9rem;">
+
+
+  <!-- ================= HERO =============== -->
+  <section class="pqc-hero">
+    <div class="container">
+      <h1 class="pqc-title">Post-Quantum Cryptography</h1>
+      <br>
+      <p class="pqc-lead">
+        Prepare your organisation for the quantum era. This executive-friendly workshop explains quantum risks
+        in plain language, maps your cryptographic exposure, and produces a practical roadmap for quantum-safe transformation.
+      </p>
+      <br><br>
+      <a class="btn" href="../../contact.html">Book a Workshop</a>
+    </div>
+
+    <div class="pqc-hero-bg"></div>
+  </section>
+
+
+
+  <!-- ================= WHY IT MATTERS =============== -->
+  <section class="pqc-why">
+    <div class="container">
+      <h2 class="pqc-h2 pqc-why-title">Why it matters</h2>
+
+      <div class="pqc-why-grid">
+
+        <div class="pqc-why-card">
+          <div class="pqc-icon"></div>
+          <h3>Quantum threat</h3>
+          <p>Algorithms like RSA and ECC will be vulnerable to quantum attacks…</p>
+        </div>
+
+        <div class="pqc-why-card">
+          <div class="pqc-icon"></div>
+          <h3>Harvest now, decrypt later</h3>
+          <p>Adversaries can capture encrypted data today…</p>
+        </div>
+
+        <div class="pqc-why-card">
+          <div class="pqc-icon"></div>
+          <h3>Crypto-agility</h3>
+          <p>Systems must be able to identify, update and replace…</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+<!-- ⭐⭐⭐ END MAIN（roadmap 不能放在这里面） -->
+
+
+
+<!-- ⭐⭐⭐ ROADMAP（独立出来，不受 container 限制） -->
+<div class="pqc-roadmap">
+
+  <!-- Step 1 -->
+  <div class="pqc-zig-row">
+    <div class="pqc-left">
+      <div class="pqc-card">
+        <h3>Awareness</h3>
+        <p>Explain quantum computing, PQC standards…</p>
+      </div>
+    </div>
+
+    <div class="pqc-center-node">
+      <div class="pqc-dot"></div>
+      <div class="pqc-milestone">Awareness</div>
+    </div>
+
+    <div></div>
+    <div class="pqc-line-left"></div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="pqc-zig-row">
+    <div></div>
+
+    <div class="pqc-center-node">
+      <div class="pqc-dot"></div>
+      <div class="pqc-milestone">Inventory</div>
+    </div>
+
+    <div class="pqc-right">
+      <div class="pqc-card">
+        <h3>Inventory</h3>
+        <p>Identify cryptographic assets…</p>
+      </div>
+    </div>
+
+    <div class="pqc-line-right"></div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="pqc-zig-row">
+    <div class="pqc-left">
+      <div class="pqc-card">
+        <h3>Assessment</h3>
+        <p>Evaluate quantum risk…</p>
+      </div>
+    </div>
+
+    <div class="pqc-center-node">
+      <div class="pqc-dot"></div>
+      <div class="pqc-milestone">Assessment</div>
+    </div>
+
+    <div></div>
+    <div class="pqc-line-left"></div>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="pqc-zig-row">
+    <div></div>
+
+    <div class="pqc-center-node">
+      <div class="pqc-dot"></div>
+      <div class="pqc-milestone">Strategy</div>
+    </div>
+
+    <div class="pqc-right">
+      <div class="pqc-card">
+        <h3>Strategy</h3>
+        <p>Define roadmap phases…</p>
+      </div>
+    </div>
+
+    <div class="pqc-line-right"></div>
+  </div>
+
+  <!-- Step 5 -->
+  <div class="pqc-zig-row">
+    <div class="pqc-left">
+      <div class="pqc-card">
+        <h3>Pilot</h3>
+        <p>Run PQC pilots…</p>
+      </div>
+    </div>
+
+    <div class="pqc-center-node">
+      <div class="pqc-dot"></div>
+      <div class="pqc-milestone">Pilot</div>
+    </div>
+
+    <div></div>
+    <div class="pqc-line-left"></div>
+  </div>
+
+  <!-- Step 6 -->
+  <div class="pqc-zig-row">
+    <div></div>
+
+    <div class="pqc-center-node">
+      <div class="pqc-dot"></div>
+      <div class="pqc-milestone">Governance</div>
+    </div>
+
+    <div class="pqc-right">
+      <div class="pqc-card">
+        <h3>Governance</h3>
+        <p>Crypto governance and monitoring…</p>
+      </div>
+    </div>
+
+    <div class="pqc-line-right"></div>
+  </div>
+
+</div>
+
+<!-- ⭐⭐⭐ END ROADMAP -->
+
+
+<!-- =============== WHAT YOU GET ================= -->
+<section class="pqc-section">
+  <div class="pqc-what-wrapper">
+
+    <div class="pqc-what-left">
+      <h2 class="pqc-h2 inverse">What you’ll get</h2>
+      <p class="pqc-what-desc">A clear, executive-ready set of deliverables…</p>
+    </div>
+
+    <div class="pqc-what-right">
+      <div class="pqc-what-item"><h3>PQC Readiness Report</h3><p>Current cryptographic posture…</p></div>
+      <div class="pqc-what-item"><h3>Crypto-agility roadmap</h3><p>Phased actions…</p></div>
+      <div class="pqc-what-item"><h3>Leadership alignment</h3><p>Shared understanding…</p></div>
+      <div class="pqc-what-item"><h3>Optional add-on</h3><p>Crypto Discovery Service…</p></div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- =============== WHO SHOULD JOIN ================= -->
+<section class="pqc-section">
+  <h2 class="pqc-h2">Who should join</h2>
+
+  <div class="pqc-grid three">
+
+    <div class="pqc-card">
+      <h3>Executives & Board</h3>
+      <p>Prioritise investment…</p>
+    </div>
+
+    <div class="pqc-card">
+      <h3>Architects & Engineers</h3>
+      <p>Locate cryptographic dependencies…</p>
+    </div>
+
+    <div class="pqc-card">
+      <h3>Risk & Compliance</h3>
+      <p>Map regulatory expectations…</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="container">
+    <p>&copy; 2025 GOLA SOLUTIONS PTY LTD</p>
+  </div>
+</footer>
+
+
+<script src="../../script.js"></script>
+</body>
+</html>
+
