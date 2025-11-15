@@ -177,28 +177,53 @@
   window.addEventListener('resize', placeClone);
 })();
 
-// 🎬 
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // ✅ 
-      }
+// 🎬 Fade-in and partners visibility observer (scoped to avoid global redeclare)
+(function () {
+  const fadeObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const track = document.querySelector(".usecases-track");
+    if (track && !track.nextElementSibling) {
+      const clone = track.cloneNode(true);
+      clone.style.left = "100%";
+      track.parentElement.appendChild(clone);
+    }
+
+    document
+      .querySelectorAll(".fade-in, .partner-card, .partners-section h2")
+      .forEach(el => fadeObserver.observe(el));
+  });
+})();
+
+
+document.querySelectorAll(".pqc-card, .pqc-center").forEach(el => {
+
+  el.addEventListener("mouseenter", () => {
+    const step = el.dataset.step;
+
+    // 激活对应的 milestone + 卡片 + 连接线
+    document.querySelectorAll(`[data-step="${step}"]`).forEach(target => {
+      target.classList.add("active-step");
     });
-  },
-  { threshold: 0.25 }
-);
+  });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const track = document.querySelector(".usecases-track");
-  if (track && !track.nextElementSibling) {
-    const clone = track.cloneNode(true);
-    clone.style.left = "100%";
-    track.parentElement.appendChild(clone);
-  }
-});
+  el.addEventListener("mouseleave", () => {
+    const step = el.dataset.step;
 
-document.querySelectorAll('.fade-in, .partner-card, .partners-section h2').forEach(el => {
-  observer.observe(el);
+    // 移除激活
+    document.querySelectorAll(`[data-step="${step}"]`).forEach(target => {
+      target.classList.remove("active-step");
+    });
+  });
+
 });

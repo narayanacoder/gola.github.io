@@ -2352,3 +2352,133 @@ header {
   position: relative !important;
   z-index: 999 !important;
 }
+
+/* ======================== CLEAN PQC ROADMAP ======================== */
+
+.pqc-roadmap {
+  width: 100%;
+  padding: 6rem 0;
+  position: relative;
+}
+
+/* 主中轴线 */
+.pqc-main-line {
+  position: absolute;
+  top: 60px;
+  bottom: 60px;
+  left: 50%;
+  width: 3px;
+  background: #c7ccff;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* 三栏布局：左 | 中心 | 右 */
+.pqc-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin: 5rem 0;
+  position: relative;
+}
+
+/* 中心节点 */
+.pqc-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+.pqc-dot {
+  width: 14px;
+  height: 14px;
+  background: #6477ff;
+  border-radius: 50%;
+  margin-bottom: 0.4rem;
+  transition: 0.25s ease;
+}
+
+.pqc-tag {
+  background: #eef0ff;
+  padding: 0.45rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  transition: 0.25s ease;
+}
+
+/* 左右容器 */
+.pqc-left {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 2rem;
+}
+.pqc-right {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 2rem;
+}
+
+/* 卡片样式（干净版） */
+.pqc-card {
+  width: 340px;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: 0.25s ease;
+  z-index: 3;
+}
+
+/* 连接线 */
+.pqc-line-left,
+.pqc-line-right {
+  position: absolute;
+  width: 120px;
+  height: 2px;
+  border-top: 2px dashed #b8befc;
+  top: 50%;
+  z-index: 2;
+}
+.pqc-line-left { left: calc(50% - 120px); }
+.pqc-line-right { right: calc(50% - 120px); }
+
+/* ==================== Hover 动效 ==================== */
+
+.pqc-card.active-step {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+.pqc-center.active-step .pqc-tag {
+  background: #586aff;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.pqc-center.active-step .pqc-dot {
+  background: #4456ff;
+  transform: scale(1.3);
+}
+
+.pqc-line-left.active-step,
+.pqc-line-right.active-step {
+  border-top-color: #7a87ff;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .pqc-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .pqc-left, .pqc-right {
+    justify-content: center;
+    padding: 0;
+  }
+  .pqc-line-left, .pqc-line-right {
+    display: none;
+  }
+}
