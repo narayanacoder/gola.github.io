@@ -2104,12 +2104,7 @@ header {
   letter-spacing: -0.5px;
 }
 
-.pqc-why-grid {
-  margin-top: 2rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
+
 
 /* ====================================
    Why it matters — 背景图毛玻璃卡片
@@ -2118,8 +2113,9 @@ header {
 /* 整体布局 */
 .pqc-why-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.7rem; /* 原本太小，扩开一点 */
+  margin-top: 2rem;
 }
 
 /* 卡片本体 */
@@ -2136,13 +2132,15 @@ header {
 /* 头图区域 */
 .pqc-why-img {
   width: 100%;
-  height: 160px;           /* 你可调大调小 */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 14px 14px 0 0;
-  margin: -1px -1px 1.4rem -1px; /* 防止出现白边 */
+  height: auto; /* 自动等比缩放 */
+  border-radius: 16px;
+  display: block;
+  object-fit: cover; /* 你可以改成 contain */
 }
+
+
+
+
 
 /* 标题和文字 */
 .pqc-why-card h3 {
@@ -2745,3 +2743,4 @@ header {
   width: 120px;
   height: 120px;
 }
+
