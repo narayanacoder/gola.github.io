@@ -1,0 +1,27 @@
+<svg width="2000" height="2000" viewBox="0 0 2000 2000"
+xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#5b9df9"/>
+    <stop offset="100%" stop-color="#9b5df7"/>
+  </linearGradient>
+</defs>
+
+<!-- Atom with 50px stroke -->
+<circle cx="1000" cy="1000" r="120" stroke="url(#grad)" stroke-width="50" fill="none"/>
+
+<ellipse cx="1000" cy="1000" rx="700" ry="260"
+ stroke="url(#grad)" stroke-width="50" fill="none"/>
+
+<ellipse cx="1000" cy="1000" rx="260" ry="700"
+ stroke="url(#grad)" stroke-width="50" fill="none"/>
+
+<ellipse cx="1000" cy="1000" rx="550" ry="200"
+ stroke="url(#grad)" stroke-width="50" fill="none"
+ transform="rotate(45 1000 1000)"/>
+
+<ellipse cx="1000" cy="1000" rx="550" ry="200"
+ stroke="url(#grad)" stroke-width="50" fill="none"
+ transform="rotate(-45 1000 1000)"/>
+
+</svg>

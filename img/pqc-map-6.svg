@@ -1,0 +1,31 @@
+<svg width="2000" height="2000" viewBox="0 0 2000 2000"
+xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#5b9df9"/>
+    <stop offset="100%" stop-color="#9b5df7"/>
+  </linearGradient>
+</defs>
+
+
+<!-- Bigger, rounder cloud -->
+<path d="
+ M350 1250
+ C150 1250 150 850 600 820
+ C750 550 1200 500 1450 780
+ C1650 750 1850 900 1850 1150
+ C1950 1250 1950 1500 1600 1500
+ L650 1500
+ C450 1500 300 1450 350 1250
+"
+ stroke="url(#grad)" stroke-width="50" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+<!-- Smaller centered checkmark -->
+<path d="
+ M880 1180
+ L1020 1320
+ L1280 1060
+"
+ stroke="url(#grad)" stroke-width="50" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+</svg>
