@@ -79,22 +79,19 @@
 
       <div class="pqc-why-grid">
 
-        <div class="pqc-why-card">
-          <div class="pqc-icon"></div>
+        <div class="pqc-why-card" style="--bg: url('images/why-1.png');">
           <h3>Quantum threat</h3>
-          <p>Algorithms like RSA and ECC will be vulnerable to quantum attacks…</p>
+          <p>Algorithms like RSA and ECC can be broken by future quantum computers, making today’s encrypted data unsafe.</p>
         </div>
 
-        <div class="pqc-why-card">
-          <div class="pqc-icon"></div>
+        <div class="pqc-why-card" style="--bg:url('images/why-2.png')">
           <h3>Harvest now, decrypt later</h3>
-          <p>Adversaries can capture encrypted data today…</p>
+          <p>Attackers can steal encrypted data today and decrypt it once quantum power becomes available, exposing long-term sensitive information.</p>
         </div>
 
-        <div class="pqc-why-card">
-          <div class="pqc-icon"></div>
+        <div class="pqc-why-card" style="--bg:url('images/why-3.png')">
           <h3>Crypto-agility</h3>
-          <p>Systems must be able to identify, update and replace…</p>
+          <p>Systems must quickly swap out vulnerable cryptography so organisations can update, replace, and stay protected without disruption.</p>
         </div>
 
       </div>
@@ -108,6 +105,8 @@
 
 <!-- ⭐⭐⭐ ROADMAP（独立出来，不受 container 限制） -->
 <div class="pqc-roadmap">
+  <h2 class="pqc-roadmap-title">PQC Workshop Roadmap</h2>
+  <p class="pqc-roadmap-sub">Six essential steps toward quantum-safe readiness</p>
 
   <div class="pqc-main-line"></div>
 
@@ -116,8 +115,13 @@
 
     <div class="pqc-left">
       <div class="pqc-card" data-step="awareness">
-        <h3>Quantum risk briefing</h3>
-        <p>Explain quantum computing, PQC standards and business impact clearly.</p>
+        <div class="pqc-card-icon">
+          <img src="icons/awareness.svg" alt="">
+        </div>
+        <div class="pqc-card-content">
+          <h3>Quantum risk briefing</h3>
+          <p>Provide a clear explanation of quantum computing, emerging PQC standards, and the business impact of quantum threats. Establish a shared understanding of why quantum-safe planning is required now—not later.</p>
+        </div>
       </div>
     </div>
 
@@ -144,8 +148,13 @@
 
     <div class="pqc-right">
       <div class="pqc-card" data-step="inventory">
-        <h3>Crypto inventory</h3>
-        <p>Identify cryptography across certificates, keys, applications and services.</p>
+        <div class="pqc-card-icon">
+          <img src="icons/inventory.svg" alt="">
+        </div>
+        <div class="pqc-card-content">
+          <h3>Crypto inventory</h3>
+          <p>Identify where cryptography is used across the organisation, including certificates, keys, applications, interfaces, and external services. Ensure no hidden or legacy cryptographic assets are overlooked during future migration.</p>
+        </div>
       </div>
     </div>
 
@@ -159,8 +168,13 @@
 
     <div class="pqc-left">
       <div class="pqc-card" data-step="assessment">
-        <h3>Risk assessment</h3>
-        <p>Prioritise systems based on criticality and complexity.</p>
+        <div class="pqc-card-icon">
+          <img src="icons/assessment.svg" alt="">
+        </div>
+        <div class="pqc-card-content">
+          <h3>Risk assessment</h3>
+          <p>Prioritise systems based on criticality, exposure, and cryptographic complexity. Determine which assets require urgent mitigation and which can be addressed in later phases.</p>
+        </div>
       </div>
     </div>
 
@@ -187,8 +201,13 @@
 
     <div class="pqc-right">
       <div class="pqc-card" data-step="strategy">
-        <h3>Agility strategy</h3>
-        <p>Agree on PQC direction and architectural impact.</p>
+        <div class="pqc-card-icon">
+          <img src="icons/strategy.svg" alt="">
+        </div>
+        <div class="pqc-card-content">
+          <h3>Agility strategy</h3>
+          <p>Define a long-term approach for crypto-agility, covering architecture, processes, and operational readiness. Enable the organisation to update or replace cryptography quickly as standards evolve.</p>
+        </div>
       </div>
     </div>
 
@@ -202,8 +221,13 @@
 
     <div class="pqc-left">
       <div class="pqc-card" data-step="pilot">
-        <h3>Pilot implementation</h3>
-        <p>Run pilot migrations with milestones and dependencies.</p>
+        <div class="pqc-card-icon">
+          <img src="icons/pilot.svg" alt="">
+        </div>
+        <div class="pqc-card-content">
+          <h3>Pilot implementation</h3>
+          <p>Run targeted pilot migrations on selected systems to validate feasibility and uncover potential challenges. Establish clear milestones and dependencies to support broader organisation-wide rollout.</p>
+        </div>
       </div>
     </div>
 
@@ -230,8 +254,13 @@
 
     <div class="pqc-right">
       <div class="pqc-card" data-step="governance">
-        <h3>Governance & next steps</h3>
-        <p>Document decisions, governance and follow-up actions.</p>
+        <div class="pqc-card-icon">
+          <img src="icons/governance.svg" alt="">
+        </div>
+        <div class="pqc-card-content">
+          <h3>Governance & next steps</h3>
+          <p>Document decisions, ownership, and governance structures to guide ongoing PQC efforts. Provide a clear roadmap of follow-up actions to maintain momentum and ensure long-term resilience.</p>
+        </div>
       </div>
     </div>
 
@@ -254,41 +283,34 @@
     </div>
 
     <div class="pqc-what-right">
-      <div class="pqc-what-item"><h3>PQC Readiness Report</h3><p>Current cryptographic posture…</p></div>
-      <div class="pqc-what-item"><h3>Crypto-agility roadmap</h3><p>Phased actions…</p></div>
-      <div class="pqc-what-item"><h3>Leadership alignment</h3><p>Shared understanding…</p></div>
-      <div class="pqc-what-item"><h3>Optional add-on</h3><p>Crypto Discovery Service…</p></div>
+      <div class="pqc-what-item"><h3>PQC Readiness Report</h3><p>An assessment of your current cryptographic posture and quantum-risk exposure.</p></div>
+      <div class="pqc-what-item"><h3>Crypto-agility roadmap</h3><p>A phased plan outlining how to upgrade, replace, and modernise cryptography across the organisation.</p></div>
+      <div class="pqc-what-item"><h3>Leadership alignment</h3><p>A shared understanding for executives on quantum risks, priorities, and required actions.</p></div>
+      <div class="pqc-what-item"><h3>Optional add-on</h3><p>Crypto Discovery Service for identifying hidden or undocumented cryptographic use.</p></div>
     </div>
 
   </div>
 </section>
 
+<!-- =============== FINAL CTA SECTION =============== -->
+<section class="pqc-final-cta">
 
+  <h2 class="pqc-final-title">You should join</h2>
+  <p class="pqc-final-subtitle">
+    Prepare your organisation for the quantum era. Start your PQC readiness today.
+  </p>
 
-<!-- =============== WHO SHOULD JOIN ================= -->
-<section class="pqc-section">
-  <h2 class="pqc-h2">Who should join</h2>
+  <div class="pqc-cta-box">
+    <h3>Ready to secure your future?</h3>
+    <p>Our PQC workshop helps you understand risks, map your cryptographic exposure, and build a clear action plan.</p>
 
-  <div class="pqc-grid three">
-
-    <div class="pqc-card">
-      <h3>Executives & Board</h3>
-      <p>Prioritise investment…</p>
+    <div class="pqc-cta-buttons">
+      <a href="../../contact.html" class="pqc-btn-primary">Book a Workshop</a>
+      <a href="../../contact.html" class="pqc-btn-secondary">Talk to our team</a>
     </div>
-
-    <div class="pqc-card">
-      <h3>Architects & Engineers</h3>
-      <p>Locate cryptographic dependencies…</p>
-    </div>
-
-    <div class="pqc-card">
-      <h3>Risk & Compliance</h3>
-      <p>Map regulatory expectations…</p>
-    </div>
-
   </div>
-</section>
 
+</section>
 
 
 <footer>
@@ -299,7 +321,6 @@
 
 
 <script src="../../script.js"></script>
-
 
 </body>
 </html>
