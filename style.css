@@ -2744,3 +2744,26 @@ header {
   height: 120px;
 }
 
+/* ======================================
+  PQC buttom in service page
+====================================== */
+.big-pqc-btn {
+  display: inline-block;
+  margin-top: 4.4rem;
+  margin-left: 5.0rem;
+  padding: 0.9rem 2.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 40px;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(90deg, #6675ff, #9b5eff);
+  box-shadow: 0 10px 28px rgba(120, 80, 255, 0.25);
+  transition: all 0.25s ease;
+}
+
+.big-pqc-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(120, 80, 255, 0.35);
+  filter: brightness(1.12);
+}
